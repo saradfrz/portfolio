@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sara Fernandez | Senior Data Engineer</title>
+<link
+  rel="icon"
+  type="image/svg+xml"
+  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050407'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23ffffff'%3ESF%3C/text%3E%3C/svg%3E"
+>
 <meta name="description" content="Senior Data Engineer building data platforms, lineage and agentic AI systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -219,17 +224,16 @@
   .skill-group h3 { font-size: 1rem; color: var(--white); padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
   .skill-group div { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 
-  /* ---------- GitHub stats ---------- */
-  .stats { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
-  .stat { display: grid; place-items: center; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--glass); min-height: 150px; }
-  .stat img { max-height: 190px; width: auto; }
-  .stat.wide { grid-column: 1 / -1; }
-
   .contact .links { display: flex; flex-wrap: wrap; gap: 12px; }
-  footer { padding: 80px 0 48px; color: var(--grey-500); font-size: .9rem; }
+  footer { padding: 0 0 48px; color: var(--grey-500); font-size: .9rem; }
+  .footer-inner { border-top: 1px solid var(--line); padding-top: 28px; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; list-style: none; margin: 0; padding: 0; }
+  .footer-links a, .to-top { color: var(--grey-300); text-decoration: none; transition: color .2s; }
+  .footer-links a:hover, .to-top:hover { color: var(--magenta); }
+  .footer-copy { margin: 0; }
 
   @media (max-width: 860px) {
-    .about, .grid.two, .skills, .stats { grid-template-columns: 1fr; }
+    .about, .grid.two, .skills { grid-template-columns: 1fr; }
     :root { --avatar: 128px; }
     section { padding-top: 64px; }
     .highlight { flex-direction: column; }
@@ -270,12 +274,6 @@
     </div>
   </section>
 
-  <section id="projects" aria-labelledby="projects-title">
-    <h2 id="projects-title">Projects</h2>
-    <p class="lead" id="projects-lead"></p>
-    <div id="project-groups"></div>
-  </section>
-
   <section id="highlights" aria-labelledby="hl-title">
     <h2 id="hl-title"></h2>
     <p class="lead" id="hl-lead"></p>
@@ -287,15 +285,16 @@
     <ol class="timeline" id="timeline"></ol>
   </section>
 
+  <section id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Projects</h2>
+    <p class="lead" id="projects-lead"></p>
+    <div id="project-groups"></div>
+  </section>
+
   <section id="skills" aria-labelledby="skills-title">
     <h2 id="skills-title">Toolbox</h2>
     <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
     <div class="skills" id="skills"></div>
-  </section>
-
-  <section id="stats" aria-labelledby="stats-title">
-    <h2 id="stats-title">On GitHub</h2>
-    <div class="stats" id="stats-grid"></div>
   </section>
 
   <section id="contact" class="contact" aria-labelledby="contact-title">
@@ -305,7 +304,7 @@
   </section>
 </main>
 
-<footer class="wrap" id="footer"></footer>
+<footer class="wrap" id="footer" style="margin-top: 40px;"></footer>
 
 <noscript><p style="padding:24px;color:#fff">This page loads its content from the CONFIG block and needs JavaScript.</p></noscript>
 
@@ -314,7 +313,7 @@
    CONFIG: every editable value lives here. Edit this block only.
    ================================================================== */
 const CONFIG = {
-  site: { title: "Sara Fernandez | Senior Data Engineer | Data Platforms & Architecture", footer: "Built by Sara Fernandez." },
+  site: { title: "Sara Fernandez | Senior Data Engineer | Data Platforms & Architecture", footer: "Sara Fernandez. All rights reserved." },
 
   /* ---- IMAGES: point these to your files or URLs ---- */
   profile: {
@@ -395,6 +394,50 @@ const CONFIG = {
   marquee: ["Databricks", "Apache Spark", "Python", "SQL", "Airflow", "dbt", "Docker", "Kafka", "AWS", "GCP", "Azure",
             "PostgreSQL", "Redshift", "Oracle", "Tableau", "Power BI", "Superset", "Streamlit", "Neo4j", "Git", "Linux"],
 
+  /* ---- WORK HIGHLIGHTS ---- */
+  highlights: {
+    title: "Work highlights",
+    lead: "Things I've led or shipped on the job.",
+    items: [
+      { icon: "\uD83D\uDD17", title: "South America Data Lineage platform",
+        text: "Lead the design, implementation, documentation and production deployment of an end-to-end lineage platform spanning ETL pipelines, Redshift tables, Tableau assets and business data products — turning platform metadata into operational traceability.",
+        tags: ["Data Architecture", "Data Lineage", "Redshift", "Tableau", "Governance"] },
+      { icon: "\uD83E\uDD16", title: "RAG capstone, AGCO AI Literacy (Advanced)",
+        text: "Designed an end-to-end Retrieval-Augmented Generation solution covering embeddings, vector storage, retrieval pipelines and an application layer — exploring how governed enterprise data can become an AI-ready knowledge foundation.",
+        tags: ["RAG", "Embeddings", "Vector DB", "LLMOps"] },
+      { icon: "\uD83C\uDF10", title: "Orbia Data Portal",
+        text: "Led a self-service data platform for governed data access and visibility across business units, integrating orchestration, cloud infrastructure, BI and data-serving components.",
+        tags: ["Data Platform", "Airflow", "GCP", "Azure", "Governance"] },
+      { icon: "\u267B\uFE0F", title: "Modular ETL modernization at Distrito",
+        text: "Re-architected a legacy monolithic ETL into parameterized, reusable components with clear logging and operational boundaries, improving maintainability and traceability.",
+        tags: ["ETL", "Python", "SQL", "Modularity", "Observability"] }
+    ]
+  },
+
+  /* ---- EXPERIENCE ---- */
+  experience: [
+    { when: "Mar 2026 to now", role: "Senior Data Engineer", company: "AGCO Corporation",
+      text: "Lead the design, implementation, documentation and production deployment of the South America Data Lineage platform. Develop architecture, migration and modernization strategies for the South America Data Platform, supporting the transition from legacy AWS solutions to Databricks on GCP with a focus on scalability, governance and maintainability. Partner with global stakeholders to assess migration readiness, quantify platform assets, define data product standards, and promote lineage, cataloging, data quality and governance." },
+    { when: "May 2025 to Mar 2026", role: "Data Engineer (contractor)", company: "A-Players, for AGCO",
+      text: "Translated business requirements across finance, marketing, manufacturing and logistics into ETL specifications and data pipelines. Worked across legacy and modern platforms including Pentaho, Redshift, Rundeck, AWS S3, Databricks, Python, SQL and PySpark, contributing to modularity, observability and governance." },
+    { when: "May 2024 to Feb 2025", role: "Data Engineer", company: "Orbia",
+      text: "Led development of a self-service data platform for governed access and visibility, integrating Airflow, GCP, Azure, Superset and Power BI. Worked across data delivery, cloud infrastructure and CI/CD to support reliable analytics consumption." },
+    { when: "Jul 2021 to Apr 2024", role: "Data Engineer", company: "Distrito",
+      text: "Modernized a legacy ETL architecture into a modular Python-based pipeline with parameterized components, reusable classes and structured logging, improving maintainability, traceability and operational support while exposing curated datasets through REST APIs." },
+    { when: "Jan to Jul 2019", role: "Intern", company: "John Deere",
+      text: "Worked across the ISA-95 stack, connecting industrial systems and data flows from PLC and SCADA environments through MES and analytics. This foundation shaped my systems-oriented approach to data architecture and industrial data platforms." }
+  ],
+
+  /* ---- SKILLS (names found in "tech" become badges, others become chips) ---- */
+  skills: [
+    { group: "Data Architecture", items: ["Data platforms", "Data architecture", "Medallion architecture", "Data products", "Modernization", "Migration strategy"] },
+    { group: "Data Engineering", items: ["Databricks", "Apache Spark", "PySpark", "Airflow", "dbt", "Kafka"] },
+    { group: "Cloud & Infrastructure", items: ["AWS", "GCP", "Azure", "Docker", "CI/CD", "Platform operations"] },
+    { group: "Data Systems", items: ["SQL", "Python", "Redshift", "PostgreSQL", "Oracle", "Parquet"] },
+    { group: "Governance & Reliability", items: ["Data lineage", "Data quality", "Data catalog", "Governance", "Observability", "Traceability"] },
+    { group: "AI & Analytics", items: ["RAG", "Knowledge graphs", "Multi-agent systems", "LLMOps", "Tableau", "Power BI"] }
+  ],
+
   /* ---- PROJECTS: state is "featured" (finished), "wip" or "planning" ---- */
   projectsLead: "Projects focused on data platform engineering, architecture patterns, scalable pipelines and the infrastructure required to operate them reliably.",
   projectGroups: [
@@ -441,60 +484,7 @@ const CONFIG = {
       ]
     }
   ],
-
-  /* ---- WORK HIGHLIGHTS ---- */
-  highlights: {
-    title: "Work highlights",
-    lead: "Things I've led or shipped on the job.",
-    items: [
-      { icon: "\uD83D\uDD17", title: "South America Data Lineage platform",
-        text: "Lead the design, implementation, documentation and production deployment of an end-to-end lineage platform spanning ETL pipelines, Redshift tables, Tableau assets and business data products — turning platform metadata into operational traceability.",
-        tags: ["Data Architecture", "Data Lineage", "Redshift", "Tableau", "Governance"] },
-      { icon: "\uD83E\uDD16", title: "RAG capstone, AGCO AI Literacy (Advanced)",
-        text: "Designed an end-to-end Retrieval-Augmented Generation solution covering embeddings, vector storage, retrieval pipelines and an application layer — exploring how governed enterprise data can become an AI-ready knowledge foundation.",
-        tags: ["RAG", "Embeddings", "Vector DB", "LLMOps"] },
-      { icon: "\uD83C\uDF10", title: "Orbia Data Portal",
-        text: "Led a self-service data platform for governed data access and visibility across business units, integrating orchestration, cloud infrastructure, BI and data-serving components.",
-        tags: ["Data Platform", "Airflow", "GCP", "Azure", "Governance"] },
-      { icon: "\u267B\uFE0F", title: "Modular ETL modernization at Distrito",
-        text: "Re-architected a legacy monolithic ETL into parameterized, reusable components with clear logging and operational boundaries, improving maintainability and traceability.",
-        tags: ["ETL", "Python", "SQL", "Modularity", "Observability"] }
-    ]
-  },
-
-  /* ---- EXPERIENCE ---- */
-  experience: [
-    { when: "Mar 2026 to now", role: "Senior Data Engineer", company: "AGCO Corporation",
-      text: "Lead the design, implementation, documentation and production deployment of the South America Data Lineage platform. Develop architecture, migration and modernization strategies for the South America Data Platform, supporting the transition from legacy AWS solutions to Databricks on GCP with a focus on scalability, governance and maintainability. Partner with global stakeholders to assess migration readiness, quantify platform assets, define data product standards, and promote lineage, cataloging, data quality and governance." },
-    { when: "May 2025 to Mar 2026", role: "Data Engineer (contractor)", company: "A-Players, for AGCO",
-      text: "Translated business requirements across finance, marketing, manufacturing and logistics into ETL specifications and data pipelines. Worked across legacy and modern platforms including Pentaho, Redshift, Rundeck, AWS S3, Databricks, Python, SQL and PySpark, contributing to modularity, observability and governance." },
-    { when: "May 2024 to Feb 2025", role: "Data Engineer", company: "Orbia",
-      text: "Led development of a self-service data platform for governed access and visibility, integrating Airflow, GCP, Azure, Superset and Power BI. Worked across data delivery, cloud infrastructure and CI/CD to support reliable analytics consumption." },
-    { when: "Jul 2021 to Apr 2024", role: "Data Engineer", company: "Distrito",
-      text: "Modernized a legacy ETL architecture into a modular Python-based pipeline with parameterized components, reusable classes and structured logging, improving maintainability, traceability and operational support while exposing curated datasets through REST APIs." },
-    { when: "Jan to Jul 2019", role: "Intern", company: "John Deere",
-      text: "Worked across the ISA-95 stack, connecting industrial systems and data flows from PLC and SCADA environments through MES and analytics. This foundation shaped my systems-oriented approach to data architecture and industrial data platforms." }
-  ],
-
-  /* ---- SKILLS (names found in "tech" become badges, others become chips) ---- */
-  skills: [
-    { group: "Data Architecture", items: ["Data platforms", "Data architecture", "Medallion architecture", "Data products", "Modernization", "Migration strategy"] },
-    { group: "Data Engineering", items: ["Databricks", "Apache Spark", "PySpark", "Airflow", "dbt", "Kafka"] },
-    { group: "Cloud & Infrastructure", items: ["AWS", "GCP", "Azure", "Docker", "CI/CD", "Platform operations"] },
-    { group: "Data Systems", items: ["SQL", "Python", "Redshift", "PostgreSQL", "Oracle", "Parquet"] },
-    { group: "Governance & Reliability", items: ["Data lineage", "Data quality", "Data catalog", "Governance", "Observability", "Traceability"] },
-    { group: "AI & Analytics", items: ["RAG", "Knowledge graphs", "Multi-agent systems", "LLMOps", "Tableau", "Power BI"] }
-  ],
-
-  /* ---- GITHUB STATS (third-party image services; need internet) ---- */
-  stats: {
-    githubUser: "saradfrz",
-    leetcodeUser: "saradfrz",
-    codewarsUser: "saradfrz",
-    accent: "ff2bd6",
-    text: "b0abba"
-  },
-
+  
   contact: { title: "Let's talk", lead: "Open to conversations about data platforms, data architecture, cloud modernization, governance, infrastructure and AI-ready data foundations." }
 };
 
@@ -640,12 +630,29 @@ class Page {
     if (links.linkedin) box.append(this.el("a", { class: "btn", href: links.linkedin, target: "_blank", rel: "noopener", text: "LinkedIn" }));
     if (links.github) box.append(this.el("a", { class: "btn", href: links.github, target: "_blank", rel: "noopener", text: "GitHub" }));
     if (links.discord) box.append(this.el("a", { class: "btn", href: links.discord, target: "_blank", rel: "noopener", text: "Discord" }));
-    this.$("footer").textContent = this.cfg.site.footer;
+  }
+
+  renderFooter() {
+    const { links, site } = this.cfg, foot = this.$("footer");
+    const inner = this.el("div", { class: "footer-inner" });
+    const copy = this.el("p", { class: "footer-copy", text: `\u00A9 ${new Date().getFullYear()} ${site.footer}` });
+    const nav = this.el("ul", { class: "footer-links" });
+    const add = (label, href, ext) => {
+      const a = this.el("a", { href, text: label });
+      if (ext) { a.target = "_blank"; a.rel = "noopener"; }
+      const li = document.createElement("li"); li.append(a); nav.append(li);
+    };
+    if (links.github) add("GitHub", links.github, true);
+    if (links.linkedin) add("LinkedIn", links.linkedin, true);
+    if (links.email) add("Email", `mailto:${links.email}`);
+    const top = this.el("a", { class: "to-top", href: "#cover", text: "Back to top \u2191" });
+    inner.append(copy, nav, top);
+    foot.append(inner);
   }
 
   render() {
     this.renderHero(); this.renderAbout(); this.renderProjects(); this.renderHighlights();
-    this.renderExperience(); this.renderSkills(); this.renderStats(); this.renderContact();
+    this.renderExperience(); this.renderSkills(); this.renderContact(); this.renderFooter();
   }
 }
 
