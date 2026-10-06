@@ -314,41 +314,41 @@
    CONFIG: every editable value lives here. Edit this block only.
    ================================================================== */
 const CONFIG = {
-  site: { title: "Sara Fernandez | Senior Data Engineer", footer: "Built by Sara Fernandez." },
+  site: { title: "Sara Fernandez | Senior Data Engineer | Data Platforms & Architecture", footer: "Built by Sara Fernandez." },
 
   /* ---- IMAGES: point these to your files or URLs ---- */
   profile: {
-    image: "",                       // e.g. "img/sara.jpg" (square, 600x600 or larger)
+    image: "https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/sara_profile.jpg",                       // e.g. "img/sara.jpg" (square, 600x600 or larger)
     alt: "Portrait of Sara Fernandez",
     initials: "SF"                   // shown while image is empty
   },
   cover: {
-    image: "",                       // e.g. "img/cover.jpg" (wide, about 2400x700)
-    alt: ""
+    image: "https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/nebulae.png",                       // e.g. "img/cover.jpg" (wide, about 2400x700)
+    alt: "nebulae"
   },
 
   /* ---- IDENTITY ---- */
   name: "Sara Fernandez",
-  role: "Senior Data Engineer",
+  role: "Senior Data Engineer | Data Platforms & Architecture",
   typing: [                          // lines the typing animation cycles through
-    "Building scalable data platforms",
-    "Databricks | Spark | Python | SQL",
-    "Data lineage, governance and observability",
-    "RAG and agentic AI workflows",
-    "Mentoring engineers and sharing knowledge"
+    "Designing scalable data platforms",
+    "Data architecture | Cloud | Databricks | Spark",
+    "Modernization | Migration | Platform Strategy",
+    "Data lineage | Governance | Quality | Observability",
+    "Technical leadership | Enablement | Knowledge transfer"
   ],
-  tagline: "I design and scale data platforms, lineage and governance, and I'm building toward agentic AI systems that make data easier to trust and to learn from.",
+  tagline: "I design data platforms and architecture that make data scalable, governed, observable and operationally sustainable — from legacy modernization and cloud migration to lineage, data products and AI-ready foundations.",
 
   about: [
-    "I'm a Senior Data Engineer at AGCO, where I lead the South America Data Lineage platform: end-to-end traceability across ETL pipelines, Redshift tables, Tableau assets and business data products. I also help shape the move from legacy AWS-based solutions to Databricks on GCP.",
-    "I started in Chemical Engineering and an industrial internship that touched every level of the ISA-95 stack, from PLCs to ERP. That's why I like data work that stays close to how the business really runs.",
-    "I mentor engineers, train partner teams and write the documentation that makes onboarding shorter."
+    "I'm a Senior Data Engineer at AGCO working across data engineering, platform architecture and modernization. I lead the South America Data Lineage platform, delivering end-to-end traceability across ETL pipelines, Redshift tables, Tableau assets and business data products, while contributing to architecture and migration strategies for the move from legacy AWS solutions to Databricks on GCP.",
+    "My work sits at the intersection of data pipelines and the platforms that support them: defining technical patterns, assessing migration readiness, improving observability and governance, establishing data product standards, and making systems maintainable beyond the person who built them.",
+    "I also work on the operational side of engineering — technical enablement, documentation, knowledge transfer, onboarding and partner-team training — because a platform is only successful when teams can operate and evolve it reliably."
   ],
   facts: [
-    { title: "Focus", text: "Data platforms, lineage, governance, medallion architecture" },
-    { title: "Learning", text: "RAG, knowledge graphs, agentic AI, LLMOps" },
-    { title: "Studying", text: "MBA in Data Engineering at FIAP" },
-    { title: "Languages", text: "English (C1), Spanish (native), Portuguese" }
+    { title: "Architecture", text: "Data platforms, cloud architecture, modernization, migration strategy" },
+    { title: "Engineering", text: "ETL/ELT, Spark, Databricks, orchestration, data products, platform operations" },
+    { title: "Governance", text: "Data lineage, cataloging, data quality, observability, standards" },
+    { title: "Leadership", text: "Technical enablement, mentoring, documentation, knowledge transfer" }
   ],
 
   /* ---- LINKS (leave "" to hide) ---- */
@@ -396,16 +396,16 @@ const CONFIG = {
             "PostgreSQL", "Redshift", "Oracle", "Tableau", "Power BI", "Superset", "Streamlit", "Neo4j", "Git", "Linux"],
 
   /* ---- PROJECTS: state is "featured" (finished), "wip" or "planning" ---- */
-  projectsLead: "One project I consider finished, one I'm actively building, and two I'm planning.",
+  projectsLead: "Projects focused on data platform engineering, architecture patterns, scalable pipelines and the infrastructure required to operate them reliably.",
   projectGroups: [
     {
       state: "featured", title: "Finished", note: "", columns: 1,
       items: [{
         title: "sefaz-rs", badge: "Featured",
-        summary: "Automation that extracts, downloads and parses electronic consumer invoices (NFC-e) from the SEFAZ-RS portal and exports structured CSVs for analysis.",
-        details: "Built as a config-driven pipeline: a Selenium downloader with undetected-chromedriver, a BeautifulSoup parser, retry logic for flaky steps, and file-based logging. Behavior changes through config.json, not code.",
-        flow: ["Input CSV", "Download HTML", "Parse items", "Export CSV"],
-        tags: ["Python", "Selenium", "BeautifulSoup", "OOP", "config.json"],
+        summary: "A production-style ingestion and processing pipeline that extracts electronic consumer invoices (NFC-e) from the SEFAZ-RS portal and produces structured datasets for downstream analysis.",
+        details: "Designed as a configuration-driven pipeline with separated ingestion, parsing and export responsibilities, retry handling, structured logging and reusable components. The project emphasizes operational reliability and maintainability rather than application features.",
+        flow: ["Source CSV", "Ingestion", "Raw HTML", "Parsing", "Structured output"],
+        tags: ["Python", "ETL", "Ingestion", "OOP", "Observability"],
         url: "https://github.com/saradfrz/sefaz-rs", linkText: "View on GitHub"
       }]
     },
@@ -413,8 +413,8 @@ const CONFIG = {
       state: "wip", title: "In progress", note: "Being built now", columns: 1,
       items: [{
         title: "data-forge", badge: "In progress",
-        summary: "A fully Dockerized data engineering portfolio project that simulates a real-world ETL pipeline following the medallion architecture.",
-        details: "Spark jobs, PostgreSQL and Jupyter run together through Docker Compose, with a Makefile to start and stop the whole stack. Clean data lands in PostgreSQL and BI-ready tables land as Parquet.",
+        summary: "A containerized data platform that simulates a production ETL/ELT environment using Medallion Architecture and separated processing layers.",
+        details: "Spark, PostgreSQL and Jupyter run as a reproducible local platform through Docker Compose, with clear boundaries between ingestion, transformation and serving. The project emphasizes architecture, data-layer separation, reproducibility and operational simplicity.",
         flow: ["Bronze: raw JSON", "Silver: PostgreSQL", "Gold: Parquet"],
         tags: ["Spark", "PostgreSQL", "Jupyter", "Docker Compose", "Parquet", "Medallion"],
         url: "https://github.com/saradfrz/data-forge", linkText: "View on GitHub"
@@ -448,42 +448,42 @@ const CONFIG = {
     lead: "Things I've led or shipped on the job.",
     items: [
       { icon: "\uD83D\uDD17", title: "South America Data Lineage platform",
-        text: "Designed, documented and shipped to production an end-to-end lineage platform spanning ETL pipelines, Redshift, Tableau and business data products.",
-        tags: ["Databricks", "Python", "SQL", "Redshift", "Tableau"] },
+        text: "Lead the design, implementation, documentation and production deployment of an end-to-end lineage platform spanning ETL pipelines, Redshift tables, Tableau assets and business data products — turning platform metadata into operational traceability.",
+        tags: ["Data Architecture", "Data Lineage", "Redshift", "Tableau", "Governance"] },
       { icon: "\uD83E\uDD16", title: "RAG capstone, AGCO AI Literacy (Advanced)",
-        text: "Built an end-to-end Retrieval-Augmented Generation solution in a three-day capstone: embeddings, vector databases, retrieval pipelines and a front-end for AI-driven insights.",
+        text: "Designed an end-to-end Retrieval-Augmented Generation solution covering embeddings, vector storage, retrieval pipelines and an application layer — exploring how governed enterprise data can become an AI-ready knowledge foundation.",
         tags: ["RAG", "Embeddings", "Vector DB", "LLMOps"] },
       { icon: "\uD83C\uDF10", title: "Orbia Data Portal",
-        text: "Self-service portal for data access, governance and visibility across business units, delivered largely end to end across back-end and front-end.",
-        tags: ["Python", "Airflow", "GCP", "Superset", "Azure"] },
-      { icon: "\u267B\uFE0F", title: "Modular ETL rewrite at Distrito",
-        text: "Replaced a legacy monolithic pipeline with parameterized components, reusable classes and clear logging for maintainability and traceability.",
-        tags: ["Python", "SQL", "REST APIs"] }
+        text: "Led a self-service data platform for governed data access and visibility across business units, integrating orchestration, cloud infrastructure, BI and data-serving components.",
+        tags: ["Data Platform", "Airflow", "GCP", "Azure", "Governance"] },
+      { icon: "\u267B\uFE0F", title: "Modular ETL modernization at Distrito",
+        text: "Re-architected a legacy monolithic ETL into parameterized, reusable components with clear logging and operational boundaries, improving maintainability and traceability.",
+        tags: ["ETL", "Python", "SQL", "Modularity", "Observability"] }
     ]
   },
 
   /* ---- EXPERIENCE ---- */
   experience: [
     { when: "Mar 2026 to now", role: "Senior Data Engineer", company: "AGCO Corporation",
-      text: "Leading the South America Data Lineage platform and the migration strategy toward Databricks on GCP. Training partner teams and defining data product standards." },
+      text: "Lead the design, implementation, documentation and production deployment of the South America Data Lineage platform. Develop architecture, migration and modernization strategies for the South America Data Platform, supporting the transition from legacy AWS solutions to Databricks on GCP with a focus on scalability, governance and maintainability. Partner with global stakeholders to assess migration readiness, quantify platform assets, define data product standards, and promote lineage, cataloging, data quality and governance." },
     { when: "May 2025 to Mar 2026", role: "Data Engineer (contractor)", company: "A-Players, for AGCO",
-      text: "Built ETL pipelines across finance, marketing, manufacturing and logistics, moving from Pentaho, Redshift and Rundeck toward Databricks and PySpark." },
+      text: "Translated business requirements across finance, marketing, manufacturing and logistics into ETL specifications and data pipelines. Worked across legacy and modern platforms including Pentaho, Redshift, Rundeck, AWS S3, Databricks, Python, SQL and PySpark, contributing to modularity, observability and governance." },
     { when: "May 2024 to Feb 2025", role: "Data Engineer", company: "Orbia",
-      text: "Led a self-service Data Portal, set up CI/CD in Azure DevOps and Google Cloud, and integrated Airflow, Superset and Power BI." },
+      text: "Led development of a self-service data platform for governed access and visibility, integrating Airflow, GCP, Azure, Superset and Power BI. Worked across data delivery, cloud infrastructure and CI/CD to support reliable analytics consumption." },
     { when: "Jul 2021 to Apr 2024", role: "Data Engineer", company: "Distrito",
-      text: "Rebuilt a legacy ETL as a modular Python system with parameterized components, reusable classes and logging, and exposed curated datasets through REST APIs." },
+      text: "Modernized a legacy ETL architecture into a modular Python-based pipeline with parameterized components, reusable classes and structured logging, improving maintainability, traceability and operational support while exposing curated datasets through REST APIs." },
     { when: "Jan to Jul 2019", role: "Intern", company: "John Deere",
-      text: "Worked across the ISA-95 levels: PLC programming, SCADA data into Power BI, and MES refactoring." }
+      text: "Worked across the ISA-95 stack, connecting industrial systems and data flows from PLC and SCADA environments through MES and analytics. This foundation shaped my systems-oriented approach to data architecture and industrial data platforms." }
   ],
 
   /* ---- SKILLS (names found in "tech" become badges, others become chips) ---- */
   skills: [
-    { group: "Platform", items: ["Databricks", "Apache Spark", "Airflow", "dbt", "Docker", "Kafka"] },
-    { group: "Languages", items: ["Python", "SQL", "PySpark", "Flask", "Django"] },
-    { group: "Cloud and data", items: ["AWS", "GCP", "Azure", "Redshift", "PostgreSQL", "Oracle"] },
-    { group: "BI", items: ["Tableau", "Power BI", "Superset", "Streamlit", "Looker"] },
-    { group: "AI", items: ["Neo4j", "RAG", "Knowledge graphs", "Multi-agent systems", "LLMOps"] },
-    { group: "Governance", items: ["Data lineage", "Data quality", "Observability", "Medallion architecture"] }
+    { group: "Data Architecture", items: ["Data platforms", "Data architecture", "Medallion architecture", "Data products", "Modernization", "Migration strategy"] },
+    { group: "Data Engineering", items: ["Databricks", "Apache Spark", "PySpark", "Airflow", "dbt", "Kafka"] },
+    { group: "Cloud & Infrastructure", items: ["AWS", "GCP", "Azure", "Docker", "CI/CD", "Platform operations"] },
+    { group: "Data Systems", items: ["SQL", "Python", "Redshift", "PostgreSQL", "Oracle", "Parquet"] },
+    { group: "Governance & Reliability", items: ["Data lineage", "Data quality", "Data catalog", "Governance", "Observability", "Traceability"] },
+    { group: "AI & Analytics", items: ["RAG", "Knowledge graphs", "Multi-agent systems", "LLMOps", "Tableau", "Power BI"] }
   ],
 
   /* ---- GITHUB STATS (third-party image services; need internet) ---- */
@@ -495,7 +495,7 @@ const CONFIG = {
     text: "b0abba"
   },
 
-  contact: { title: "Let's talk", lead: "Open to conversations about data platforms, lineage and agentic AI." }
+  contact: { title: "Let's talk", lead: "Open to conversations about data platforms, data architecture, cloud modernization, governance, infrastructure and AI-ready data foundations." }
 };
 
 /* ==================================================================
@@ -631,22 +631,6 @@ class Page {
     ])));
   }
 
-  renderStats() {
-    const s = this.cfg.stats, a = s.accent, tx = s.text;
-    const cards = [
-      { alt: "GitHub stats", wide: false, src: `https://github-readme-stats.vercel.app/api?username=${s.githubUser}&show_icons=true&hide_border=true&bg_color=00000000&title_color=${a}&icon_color=${a}&text_color=${tx}` },
-      { alt: "Top languages", wide: false, src: `https://github-readme-stats.vercel.app/api/top-langs/?username=${s.githubUser}&layout=compact&hide_border=true&bg_color=00000000&title_color=${a}&text_color=${tx}` },
-      { alt: "GitHub streak", wide: true, src: `https://github-readme-streak-stats.herokuapp.com/?user=${s.githubUser}&hide_border=true&background=00000000&ring=${a}&fire=${a}&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=${a}&sideLabels=${tx}&dates=77727f` },
-      { alt: "LeetCode stats", wide: false, src: `https://leetcard.jacoblin.cool/${s.leetcodeUser}?theme=dark` },
-      { alt: "Codewars stats", wide: false, src: `https://github.r2v.ch/codewars?user=${s.codewarsUser}&stroke=%23${a}` }
-    ];
-    cards.forEach(c => {
-      const img = this.el("img", { src: c.src, alt: c.alt, loading: "lazy" });
-      const box = this.el("div", { class: `stat ${c.wide ? "wide" : ""}` }, [img]);
-      img.addEventListener("error", () => box.remove());
-      this.$("stats-grid").append(box);
-    });
-  }
 
   renderContact() {
     const { contact, links } = this.cfg, box = this.$("contact-links");
