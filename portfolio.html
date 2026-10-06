@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sara Fernandez | Senior Data Engineer</title>
+<meta name="description" content="Senior Data Engineer building data platforms, lineage and agentic AI systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     THEME TOKENS: change colors and fonts here
+     ============================================================ */
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --magenta: #ff2bd6;
+    --magenta-deep: #b80f96;
+    --haze: #6e4ba0;            /* muted violet, used only inside the nebula */
+    --grey-100: #ebe9ef;
+    --grey-300: #b0abba;
+    --grey-500: #77727f;
+    --grey-700: #2a2730;
+    --grey-900: #0d0c10;
+
+    --text: var(--grey-100);
+    --text-dim: var(--grey-300);
+    --line: rgba(255, 255, 255, .09);
+    --glass: rgba(255, 255, 255, .03);
+
+    --font-display: "Sora", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+
+    --content: 1080px;
+    --avatar: 156px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--black); color: var(--text);
+    font-family: var(--font-body); font-size: 16.5px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--magenta); outline-offset: 3px; border-radius: 6px; }
+
+  /* ---------- Nebula: dark, mostly black, with a faint haze ---------- */
+  .nebula { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--black); }
+  .nebula::before {
+    content: ""; position: absolute; inset: -20%;
+    background:
+      radial-gradient(40% 34% at 12% 10%, rgba(255, 43, 214, .10), transparent 70%),
+      radial-gradient(38% 34% at 90% 16%, rgba(110, 75, 160, .20), transparent 70%),
+      radial-gradient(44% 38% at 74% 84%, rgba(160, 60, 140, .08), transparent 70%),
+      radial-gradient(36% 34% at 16% 80%, rgba(120, 120, 140, .11), transparent 70%),
+      radial-gradient(30% 26% at 50% 46%, rgba(50, 30, 70, .28), transparent 72%);
+    filter: blur(30px);
+    animation: drift 70s ease-in-out infinite alternate;
+  }
+  .nebula::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 12% 22%, #fff, transparent 60%),
+      radial-gradient(1px 1px at 78% 12%, #fff, transparent 60%),
+      radial-gradient(1.5px 1.5px at 44% 64%, #fff, transparent 60%),
+      radial-gradient(1px 1px at 90% 70%, #fff, transparent 60%),
+      radial-gradient(1px 1px at 28% 90%, #fff, transparent 60%),
+      radial-gradient(1.5px 1.5px at 62% 34%, var(--magenta), transparent 60%),
+      radial-gradient(1px 1px at 6% 56%, #fff, transparent 60%);
+    background-size: 520px 520px;
+    animation: twinkle 7s ease-in-out infinite alternate;
+  }
+  @keyframes drift { from { transform: translate3d(-2%, -1%, 0) scale(1); } to { transform: translate3d(3%, 2%, 0) scale(1.07); } }
+  @keyframes twinkle { from { opacity: .35; } to { opacity: .85; } }
+
+  /* ---------- Hero ---------- */
+  .cover {
+    position: relative; height: clamp(220px, 34vw, 380px); overflow: hidden;
+    background:
+      radial-gradient(45% 80% at 18% 20%, rgba(255, 43, 214, .22), transparent 70%),
+      radial-gradient(55% 90% at 82% 15%, rgba(110, 75, 160, .35), transparent 70%),
+      radial-gradient(60% 70% at 55% 105%, rgba(120, 120, 140, .22), transparent 70%),
+      #050407;
+  }
+  .cover img { width: 100%; height: 100%; object-fit: cover; }
+  .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.95) 100%); }
+
+  .wrap { width: min(var(--content), 100% - 40px); margin-inline: auto; }
+
+  .identity { position: relative; margin-top: calc(var(--avatar) / -2); display: grid; gap: 26px; }
+  .avatar {
+    width: var(--avatar); height: var(--avatar); border-radius: 50%; padding: 4px;
+    background: conic-gradient(from 200deg, var(--magenta), #3a3340, var(--white), #3a3340, var(--magenta));
+    box-shadow: 0 0 46px rgba(255, 43, 214, .22);
+    animation: spin-ring 18s linear infinite;
+  }
+  .avatar > * { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: var(--black); border: 4px solid var(--black); animation: spin-ring 18s linear infinite reverse; }
+  .avatar .monogram {
+    display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 44px; color: var(--white);
+    background: radial-gradient(circle at 30% 25%, #1d1625, var(--black));
+  }
+  @keyframes spin-ring { to { transform: rotate(360deg); } }
+
+  h1 {
+    font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 7vw, 4.6rem);
+    line-height: 1.02; letter-spacing: -.03em; margin: 0 0 12px; color: var(--white);
+  }
+  .role { font-family: var(--font-display); font-weight: 500; font-size: 1.2rem; color: var(--grey-300); margin: 0 0 14px; }
+  .typing { font-family: var(--font-mono); font-size: 1.05rem; color: var(--white); min-height: 1.8em; margin: 0 0 16px; }
+  .typing::before { content: "> "; color: var(--magenta); }
+  .typing .caret { display: inline-block; width: .55em; height: 1.05em; background: var(--magenta); vertical-align: -.18em; margin-left: 2px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .tagline { max-width: 62ch; color: var(--text-dim); margin: 0; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px;
+    text-decoration: none; font-weight: 600; font-size: .94rem; border: 1px solid var(--line);
+    background: var(--glass); color: var(--white); transition: border-color .2s, background .2s;
+  }
+  .btn:hover { border-color: var(--magenta); background: rgba(255, 43, 214, .08); }
+  .btn.primary { background: var(--magenta-deep); border-color: var(--magenta-deep); }
+  .btn.primary:hover { background: var(--magenta); border-color: var(--magenta); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 84px 0 0; }
+  h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -.02em; line-height: 1.1; color: var(--white); margin: 0 0 12px; }
+  .lead { color: var(--text-dim); max-width: 64ch; margin: 0 0 32px; }
+  h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; margin: 0 0 6px; color: var(--white); letter-spacing: -.01em; }
+  .subhead { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 54px 0 18px; }
+  .subhead h3 { margin: 0; font-size: 1.15rem; }
+  .subhead p { margin: 0; color: var(--grey-500); font-size: .93rem; }
+
+  .about { display: grid; gap: 40px; grid-template-columns: 1.6fr 1fr; align-items: start; }
+  .about p { margin: 0 0 16px; max-width: 64ch; }
+  .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .facts li { padding: 14px 18px; border: 1px solid var(--line); border-left: 2px solid var(--magenta); border-radius: 12px; background: var(--glass); }
+  .facts b { display: block; color: var(--white); font-weight: 600; }
+  .facts span { color: var(--text-dim); font-size: .92rem; }
+
+  /* ---------- Cards ---------- */
+  .grid { display: grid; gap: 20px; }
+  .grid.two { grid-template-columns: repeat(2, 1fr); }
+  .card {
+    position: relative; display: flex; flex-direction: column; gap: 13px; padding: 28px;
+    border: 1px solid var(--line); background: var(--glass);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    transition: border-color .25s, box-shadow .25s;
+  }
+  .card p { margin: 0; color: var(--text-dim); }
+
+  /* featured = finished */
+  .card.featured { border-radius: 26px; padding: 34px; }
+  .card.featured::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: linear-gradient(140deg, rgba(255,43,214,.75), rgba(255,255,255,.08) 45%, rgba(255,43,214,.35));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .card.featured:hover { box-shadow: 0 0 60px rgba(255, 43, 214, .12); }
+  /* wip = dashed, magenta */
+  .card.wip { border-radius: 20px; border: 1px dashed rgba(255, 43, 214, .55); }
+  .card.wip:hover { border-color: var(--magenta); }
+  /* planning = dotted, grey, quieter */
+  .card.planning { border-radius: 16px; border: 1px dotted rgba(255, 255, 255, .28); background: rgba(255,255,255,.015); }
+  .card.planning:hover { border-color: rgba(255, 255, 255, .55); }
+  .card.planning h3 { color: var(--grey-100); }
+
+  .pill { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: .8rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--grey-100); }
+  .pill.star::before { content: "\2605"; color: var(--magenta); }
+  .pill.live { border-color: rgba(255,43,214,.45); }
+  .pill.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--magenta); box-shadow: 0 0 10px var(--magenta); animation: pulse 2.4s ease-in-out infinite; }
+  .pill.plan::before { content: ""; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--grey-300); }
+  @keyframes pulse { 50% { opacity: .3; } }
+
+  .metric { display: flex; align-items: baseline; gap: 10px; }
+  .metric strong { font-family: var(--font-display); font-size: 2rem; color: var(--white); line-height: 1; }
+  .metric span { color: var(--text-dim); font-size: .92rem; }
+
+  /* flow strip: real sequences only */
+  .flow { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 0; }
+  .flow li { position: relative; font-size: .82rem; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(0,0,0,.45); color: var(--grey-100); margin-right: 20px; }
+  .flow li:not(:last-child)::after { content: ""; position: absolute; left: 100%; top: 50%; width: 20px; height: 1px; background: linear-gradient(90deg, var(--magenta), rgba(255,255,255,.25)); background-size: 200% 100%; animation: flow-run 3s linear infinite; }
+  @keyframes flow-run { to { background-position: -200% 0; } }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 8px; align-items: center; }
+  .chip { font-size: .8rem; color: var(--grey-300); background: rgba(255,255,255,.06); padding: 3px 11px; border-radius: 6px; }
+  .badge { height: 22px; width: auto; border-radius: 4px; }
+  .card-link { margin-top: 6px; align-self: flex-start; font-weight: 600; color: var(--white); text-decoration: none; border-bottom: 1px solid var(--magenta); padding-bottom: 2px; }
+  .card-link:hover { color: var(--magenta); }
+  .card-link.soon { border-bottom-style: dashed; border-color: var(--grey-500); color: var(--grey-500); pointer-events: none; }
+
+  /* ---------- Work highlights ---------- */
+  .highlight { flex-direction: row; gap: 18px; border-radius: 18px; }
+  .highlight .icon { flex: none; width: 46px; height: 46px; display: grid; place-items: center; font-size: 1.4rem; border-radius: 12px; background: rgba(255,43,214,.08); border: 1px solid rgba(255,43,214,.3); }
+  .highlight .body { display: flex; flex-direction: column; gap: 10px; }
+
+  /* ---------- Timeline ---------- */
+  .timeline { list-style: none; margin: 0; padding: 0 0 0 28px; border-left: 1px solid var(--line); display: grid; gap: 32px; }
+  .timeline li { position: relative; }
+  .timeline li::before { content: ""; position: absolute; left: -35px; top: 9px; width: 13px; height: 13px; border-radius: 50%; background: var(--black); border: 2px solid var(--magenta); box-shadow: 0 0 12px rgba(255,43,214,.5); }
+  .timeline .when { font-family: var(--font-mono); font-size: .8rem; color: var(--magenta); }
+  .timeline h3 { font-size: 1.15rem; margin: 2px 0 2px; }
+  .timeline .where { color: var(--grey-300); margin-bottom: 6px; }
+  .timeline p { margin: 0; color: var(--text-dim); max-width: 70ch; }
+
+  /* ---------- Toolbox ---------- */
+  .marquee { overflow: hidden; margin: 0 0 30px; padding: 6px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { display: flex; gap: 12px; width: max-content; animation: scroll 55s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  .skills { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+  .skill-group { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--glass); }
+  .skill-group h3 { font-size: 1rem; color: var(--white); padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+  .skill-group div { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+  /* ---------- GitHub stats ---------- */
+  .stats { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+  .stat { display: grid; place-items: center; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--glass); min-height: 150px; }
+  .stat img { max-height: 190px; width: auto; }
+  .stat.wide { grid-column: 1 / -1; }
+
+  .contact .links { display: flex; flex-wrap: wrap; gap: 12px; }
+  footer { padding: 80px 0 48px; color: var(--grey-500); font-size: .9rem; }
+
+  @media (max-width: 860px) {
+    .about, .grid.two, .skills, .stats { grid-template-columns: 1fr; }
+    :root { --avatar: 128px; }
+    section { padding-top: 64px; }
+    .highlight { flex-direction: column; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nebula::before, .nebula::after, .avatar, .avatar > *, .pill.live::before, .flow li::after, .typing .caret { animation: none; }
+    .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+    .marquee { -webkit-mask-image: none; mask-image: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+
+<body>
+<div class="nebula" aria-hidden="true"></div>
+
+<header>
+  <!-- Cover slot: set CONFIG.cover.image. Empty = dark CSS nebula fallback. -->
+  <div class="cover" id="cover"></div>
+  <div class="wrap identity">
+    <div class="avatar" id="avatar"></div>
+    <div>
+      <h1 id="name"></h1>
+      <p class="role" id="role"></p>
+      <p class="typing" id="typing" aria-live="off"><span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
+      <p class="tagline" id="tagline"></p>
+      <div class="actions" id="actions"></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About</h2>
+    <div class="about">
+      <div id="about-text"></div>
+      <ul class="facts" id="facts"></ul>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Projects</h2>
+    <p class="lead" id="projects-lead"></p>
+    <div id="project-groups"></div>
+  </section>
+
+  <section id="highlights" aria-labelledby="hl-title">
+    <h2 id="hl-title"></h2>
+    <p class="lead" id="hl-lead"></p>
+    <div class="grid two" id="highlight-grid"></div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-title">
+    <h2 id="exp-title">Experience</h2>
+    <ol class="timeline" id="timeline"></ol>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <h2 id="skills-title">Toolbox</h2>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+    <div class="skills" id="skills"></div>
+  </section>
+
+  <section id="stats" aria-labelledby="stats-title">
+    <h2 id="stats-title">On GitHub</h2>
+    <div class="stats" id="stats-grid"></div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title"></h2>
+    <p class="lead" id="contact-lead"></p>
+    <div class="links" id="contact-links"></div>
+  </section>
+</main>
+
+<footer class="wrap" id="footer"></footer>
+
+<noscript><p style="padding:24px;color:#fff">This page loads its content from the CONFIG block and needs JavaScript.</p></noscript>
+
+<script>
+/* ==================================================================
+   CONFIG: every editable value lives here. Edit this block only.
+   ================================================================== */
+const CONFIG = {
+  site: { title: "Sara Fernandez | Senior Data Engineer", footer: "Built by Sara Fernandez." },
+
+  /* ---- IMAGES: point these to your files or URLs ---- */
+  profile: {
+    image: "",                       // e.g. "img/sara.jpg" (square, 600x600 or larger)
+    alt: "Portrait of Sara Fernandez",
+    initials: "SF"                   // shown while image is empty
+  },
+  cover: {
+    image: "",                       // e.g. "img/cover.jpg" (wide, about 2400x700)
+    alt: ""
+  },
+
+  /* ---- IDENTITY ---- */
+  name: "Sara Fernandez",
+  role: "Senior Data Engineer",
+  typing: [                          // lines the typing animation cycles through
+    "Building scalable data platforms",
+    "Databricks | Spark | Python | SQL",
+    "Data lineage, governance and observability",
+    "RAG and agentic AI workflows",
+    "Mentoring engineers and sharing knowledge"
+  ],
+  tagline: "I design and scale data platforms, lineage and governance, and I'm building toward agentic AI systems that make data easier to trust and to learn from.",
+
+  about: [
+    "I'm a Senior Data Engineer at AGCO, where I lead the South America Data Lineage platform: end-to-end traceability across ETL pipelines, Redshift tables, Tableau assets and business data products. I also help shape the move from legacy AWS-based solutions to Databricks on GCP.",
+    "I started in Chemical Engineering and an industrial internship that touched every level of the ISA-95 stack, from PLCs to ERP. That's why I like data work that stays close to how the business really runs.",
+    "I mentor engineers, train partner teams and write the documentation that makes onboarding shorter."
+  ],
+  facts: [
+    { title: "Focus", text: "Data platforms, lineage, governance, medallion architecture" },
+    { title: "Learning", text: "RAG, knowledge graphs, agentic AI, LLMOps" },
+    { title: "Studying", text: "MBA in Data Engineering at FIAP" },
+    { title: "Languages", text: "English (C1), Spanish (native), Portuguese" }
+  ],
+
+  /* ---- LINKS (leave "" to hide) ---- */
+  links: {
+    github: "https://github.com/saradfrz",
+    linkedin: "https://www.linkedin.com/in/saradfrz/",
+    email: "saradfrz@gmail.com",
+    discord: "https://discordapp.com/users/702235784794734631"
+  },
+
+  /* ---- TECH BADGES: name -> shields.io color + simple-icons logo slug ---- */
+  tech: {
+    "Databricks":      { color: "FF3621", logo: "databricks" },
+    "Apache Spark":    { color: "E25A1C", logo: "apachespark" },
+    "PySpark":         { color: "E25A1C", logo: "apachespark" },
+    "Spark":           { color: "E25A1C", logo: "apachespark" },
+    "Airflow":         { color: "017CEE", logo: "apacheairflow" },
+    "dbt":             { color: "FF694B", logo: "dbt" },
+    "Docker":          { color: "2496ED", logo: "docker" },
+    "Docker Compose":  { color: "2496ED", logo: "docker" },
+    "Kafka":           { color: "3a3a3a", logo: "apachekafka" },
+    "Python":          { color: "3776AB", logo: "python" },
+    "SQL":             { color: "4479A1", logo: "postgresql" },
+    "Flask":           { color: "3a3a3a", logo: "flask" },
+    "Django":          { color: "092E20", logo: "django" },
+    "Selenium":        { color: "43B02A", logo: "selenium" },
+    "Jupyter":         { color: "F37626", logo: "jupyter" },
+    "Parquet":         { color: "50ABF1", logo: "apacheparquet" },
+    "AWS":             { color: "FF9900", logo: "amazonwebservices", logoColor: "black" },
+    "GCP":             { color: "4285F4", logo: "googlecloud" },
+    "Azure":           { color: "0078D4", logo: "microsoftazure" },
+    "Redshift":        { color: "8C4FFF", logo: "amazonredshift" },
+    "PostgreSQL":      { color: "4169E1", logo: "postgresql" },
+    "Oracle":          { color: "F80000", logo: "oracle" },
+    "Tableau":         { color: "E97627", logo: "tableau" },
+    "Power BI":        { color: "F2C811", logo: "powerbi", logoColor: "black" },
+    "Superset":        { color: "20A6C9", logo: "apachesuperset" },
+    "Streamlit":       { color: "FF4B4B", logo: "streamlit" },
+    "Looker":          { color: "4285F4", logo: "looker" },
+    "Neo4j":           { color: "008CC1", logo: "neo4j" },
+    "Git":             { color: "F05032", logo: "git" },
+    "Linux":           { color: "FCC624", logo: "linux", logoColor: "black" }
+  },
+  marquee: ["Databricks", "Apache Spark", "Python", "SQL", "Airflow", "dbt", "Docker", "Kafka", "AWS", "GCP", "Azure",
+            "PostgreSQL", "Redshift", "Oracle", "Tableau", "Power BI", "Superset", "Streamlit", "Neo4j", "Git", "Linux"],
+
+  /* ---- PROJECTS: state is "featured" (finished), "wip" or "planning" ---- */
+  projectsLead: "One project I consider finished, one I'm actively building, and two I'm planning.",
+  projectGroups: [
+    {
+      state: "featured", title: "Finished", note: "", columns: 1,
+      items: [{
+        title: "sefaz-rs", badge: "Featured",
+        summary: "Automation that extracts, downloads and parses electronic consumer invoices (NFC-e) from the SEFAZ-RS portal and exports structured CSVs for analysis.",
+        details: "Built as a config-driven pipeline: a Selenium downloader with undetected-chromedriver, a BeautifulSoup parser, retry logic for flaky steps, and file-based logging. Behavior changes through config.json, not code.",
+        flow: ["Input CSV", "Download HTML", "Parse items", "Export CSV"],
+        tags: ["Python", "Selenium", "BeautifulSoup", "OOP", "config.json"],
+        url: "https://github.com/saradfrz/sefaz-rs", linkText: "View on GitHub"
+      }]
+    },
+    {
+      state: "wip", title: "In progress", note: "Being built now", columns: 1,
+      items: [{
+        title: "data-forge", badge: "In progress",
+        summary: "A fully Dockerized data engineering portfolio project that simulates a real-world ETL pipeline following the medallion architecture.",
+        details: "Spark jobs, PostgreSQL and Jupyter run together through Docker Compose, with a Makefile to start and stop the whole stack. Clean data lands in PostgreSQL and BI-ready tables land as Parquet.",
+        flow: ["Bronze: raw JSON", "Silver: PostgreSQL", "Gold: Parquet"],
+        tags: ["Spark", "PostgreSQL", "Jupyter", "Docker Compose", "Parquet", "Medallion"],
+        url: "https://github.com/saradfrz/data-forge", linkText: "View on GitHub"
+      }]
+    },
+    {
+      state: "planning", title: "Planning", note: "Designed on paper, not built yet", columns: 2,
+      items: [
+        {
+          title: "TickStream Lakehouse", badge: "Planning",
+          metric: { value: "~2M", label: "FX ticks per day" },
+          summary: "A medallion-architecture pipeline that ingests FX ticks through batch backfill and Kafka streaming, producing OHLC candles and reconciled gold-layer metrics.",
+          flow: ["Batch backfill + Kafka", "Bronze", "Silver", "Gold: OHLC and metrics"],
+          tags: ["Kafka", "Medallion", "Streaming", "Batch backfill", "OHLC"],
+          url: "", linkText: "Repository coming soon"
+        },
+        {
+          title: "RepoSensei", badge: "Planning",
+          summary: "A multi-agent RAG tutor that turns an obscure GitHub repository into a guided learning path, using Neo4j for both the code graph and vector search.",
+          flow: ["GitHub repo", "Neo4j: graph + vectors", "Multi-agent tutor", "Learning path"],
+          tags: ["Neo4j", "RAG", "Multi-agent", "Knowledge graph"],
+          url: "", linkText: "Repository coming soon"
+        }
+      ]
+    }
+  ],
+
+  /* ---- WORK HIGHLIGHTS ---- */
+  highlights: {
+    title: "Work highlights",
+    lead: "Things I've led or shipped on the job.",
+    items: [
+      { icon: "\uD83D\uDD17", title: "South America Data Lineage platform",
+        text: "Designed, documented and shipped to production an end-to-end lineage platform spanning ETL pipelines, Redshift, Tableau and business data products.",
+        tags: ["Databricks", "Python", "SQL", "Redshift", "Tableau"] },
+      { icon: "\uD83E\uDD16", title: "RAG capstone, AGCO AI Literacy (Advanced)",
+        text: "Built an end-to-end Retrieval-Augmented Generation solution in a three-day capstone: embeddings, vector databases, retrieval pipelines and a front-end for AI-driven insights.",
+        tags: ["RAG", "Embeddings", "Vector DB", "LLMOps"] },
+      { icon: "\uD83C\uDF10", title: "Orbia Data Portal",
+        text: "Self-service portal for data access, governance and visibility across business units, delivered largely end to end across back-end and front-end.",
+        tags: ["Python", "Airflow", "GCP", "Superset", "Azure"] },
+      { icon: "\u267B\uFE0F", title: "Modular ETL rewrite at Distrito",
+        text: "Replaced a legacy monolithic pipeline with parameterized components, reusable classes and clear logging for maintainability and traceability.",
+        tags: ["Python", "SQL", "REST APIs"] }
+    ]
+  },
+
+  /* ---- EXPERIENCE ---- */
+  experience: [
+    { when: "Mar 2026 to now", role: "Senior Data Engineer", company: "AGCO Corporation",
+      text: "Leading the South America Data Lineage platform and the migration strategy toward Databricks on GCP. Training partner teams and defining data product standards." },
+    { when: "May 2025 to Mar 2026", role: "Data Engineer (contractor)", company: "A-Players, for AGCO",
+      text: "Built ETL pipelines across finance, marketing, manufacturing and logistics, moving from Pentaho, Redshift and Rundeck toward Databricks and PySpark." },
+    { when: "May 2024 to Feb 2025", role: "Data Engineer", company: "Orbia",
+      text: "Led a self-service Data Portal, set up CI/CD in Azure DevOps and Google Cloud, and integrated Airflow, Superset and Power BI." },
+    { when: "Jul 2021 to Apr 2024", role: "Data Engineer", company: "Distrito",
+      text: "Rebuilt a legacy ETL as a modular Python system with parameterized components, reusable classes and logging, and exposed curated datasets through REST APIs." },
+    { when: "Jan to Jul 2019", role: "Intern", company: "John Deere",
+      text: "Worked across the ISA-95 levels: PLC programming, SCADA data into Power BI, and MES refactoring." }
+  ],
+
+  /* ---- SKILLS (names found in "tech" become badges, others become chips) ---- */
+  skills: [
+    { group: "Platform", items: ["Databricks", "Apache Spark", "Airflow", "dbt", "Docker", "Kafka"] },
+    { group: "Languages", items: ["Python", "SQL", "PySpark", "Flask", "Django"] },
+    { group: "Cloud and data", items: ["AWS", "GCP", "Azure", "Redshift", "PostgreSQL", "Oracle"] },
+    { group: "BI", items: ["Tableau", "Power BI", "Superset", "Streamlit", "Looker"] },
+    { group: "AI", items: ["Neo4j", "RAG", "Knowledge graphs", "Multi-agent systems", "LLMOps"] },
+    { group: "Governance", items: ["Data lineage", "Data quality", "Observability", "Medallion architecture"] }
+  ],
+
+  /* ---- GITHUB STATS (third-party image services; need internet) ---- */
+  stats: {
+    githubUser: "saradfrz",
+    leetcodeUser: "saradfrz",
+    codewarsUser: "saradfrz",
+    accent: "ff2bd6",
+    text: "b0abba"
+  },
+
+  contact: { title: "Let's talk", lead: "Open to conversations about data platforms, lineage and agentic AI." }
+};
+
+/* ==================================================================
+   RENDERER: reads CONFIG and builds the page. No content below.
+   ================================================================== */
+class Page {
+  constructor(cfg) { this.cfg = cfg; }
+
+  $(id) { return document.getElementById(id); }
+
+  el(tag, props = {}, children = []) {
+    const node = document.createElement(tag);
+    for (const [k, v] of Object.entries(props)) {
+      if (v === undefined || v === null || v === "") continue;
+      if (k === "text") node.textContent = v;
+      else if (k === "class") node.className = v;
+      else node.setAttribute(k, v);
+    }
+    for (const c of [].concat(children)) if (c) node.append(c);
+    return node;
+  }
+
+  /* shields.io label escaping: "-" -> "--", "_" -> "__", " " -> "_" */
+  badgeUrl(name, t) {
+    const label = encodeURIComponent(name.replace(/-/g, "--").replace(/_/g, "__").replace(/ /g, "_"));
+    return `https://img.shields.io/badge/${label}-${t.color}?style=flat-square&logo=${t.logo}&logoColor=${t.logoColor || "white"}`;
+  }
+
+  /* known tech -> icon badge; anything else -> plain chip */
+  tag(name) {
+    const chip = () => this.el("span", { class: "chip", text: name });
+    const t = this.cfg.tech[name];
+    if (!t) return chip();
+    const img = this.el("img", { class: "badge", src: this.badgeUrl(name, t), alt: name, loading: "lazy", height: "22" });
+    img.addEventListener("error", () => img.replaceWith(chip()));
+    return img;
+  }
+
+  renderHero() {
+    const { cfg } = this;
+    document.title = cfg.site.title;
+    if (cfg.cover.image) this.$("cover").append(this.el("img", { src: cfg.cover.image, alt: cfg.cover.alt || "" }));
+    this.$("avatar").append(cfg.profile.image
+      ? this.el("img", { src: cfg.profile.image, alt: cfg.profile.alt })
+      : this.el("div", { class: "monogram", text: cfg.profile.initials, role: "img", "aria-label": cfg.profile.alt }));
+    this.$("name").textContent = cfg.name;
+    this.$("role").textContent = cfg.role;
+    this.$("tagline").textContent = cfg.tagline;
+
+    const actions = this.$("actions");
+    actions.append(this.el("a", { class: "btn primary", href: "#projects", text: "See my projects" }));
+    if (cfg.links.linkedin) actions.append(this.el("a", { class: "btn", href: cfg.links.linkedin, target: "_blank", rel: "noopener", text: "LinkedIn" }));
+    if (cfg.links.github) actions.append(this.el("a", { class: "btn", href: cfg.links.github, target: "_blank", rel: "noopener", text: "GitHub" }));
+    this.startTyping();
+  }
+
+  startTyping() {
+    const lines = this.cfg.typing, out = this.$("typed");
+    if (!lines.length) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { out.textContent = lines[0]; return; }
+    let line = 0, pos = 0, deleting = false;
+    const tick = () => {
+      const text = lines[line];
+      pos += deleting ? -1 : 1;
+      out.textContent = text.slice(0, pos);
+      let delay = deleting ? 22 : 55;
+      if (!deleting && pos === text.length) { deleting = true; delay = 1700; }
+      else if (deleting && pos === 0) { deleting = false; line = (line + 1) % lines.length; delay = 350; }
+      setTimeout(tick, delay);
+    };
+    tick();
+  }
+
+  renderAbout() {
+    const box = this.$("about-text");
+    this.cfg.about.forEach(t => box.append(this.el("p", { text: t })));
+    this.cfg.facts.forEach(f => this.$("facts").append(this.el("li", {}, [
+      this.el("b", { text: f.title }), this.el("span", { text: f.text })
+    ])));
+  }
+
+  card(p, state) {
+    const pill = { featured: "pill star", wip: "pill live", planning: "pill plan" }[state];
+    const kids = [this.el("span", { class: pill, text: p.badge }), this.el("h3", { text: p.title })];
+    if (p.metric) kids.push(this.el("div", { class: "metric" }, [
+      this.el("strong", { text: p.metric.value }), this.el("span", { text: p.metric.label })]));
+    kids.push(this.el("p", { text: p.summary }));
+    if (p.details) kids.push(this.el("p", { text: p.details }));
+    if (p.flow && p.flow.length) kids.push(this.el("ol", { class: "flow", "aria-label": "Pipeline steps" }, p.flow.map(s => this.el("li", { text: s }))));
+    if (p.tags && p.tags.length) kids.push(this.el("div", { class: "tags" }, p.tags.map(t => this.tag(t))));
+    kids.push(p.url
+      ? this.el("a", { class: "card-link", href: p.url, target: "_blank", rel: "noopener", text: p.linkText })
+      : this.el("span", { class: "card-link soon", text: p.linkText }));
+    return this.el("article", { class: `card ${state}` }, kids);
+  }
+
+  renderProjects() {
+    this.$("projects-lead").textContent = this.cfg.projectsLead;
+    const root = this.$("project-groups");
+    this.cfg.projectGroups.forEach((g, i) => {
+      const head = this.el("div", { class: "subhead" }, [this.el("h3", { text: g.title }), g.note ? this.el("p", { text: g.note }) : null]);
+      const grid = this.el("div", { class: `grid ${g.columns === 2 ? "two" : ""}` }, g.items.map(p => this.card(p, g.state)));
+      if (i > 0) root.append(head); else head.style.marginTop = "0", root.append(head);
+      root.append(grid);
+    });
+  }
+
+  renderHighlights() {
+    const h = this.cfg.highlights;
+    this.$("hl-title").textContent = h.title;
+    this.$("hl-lead").textContent = h.lead;
+    h.items.forEach(i => this.$("highlight-grid").append(this.el("article", { class: "card highlight" }, [
+      this.el("div", { class: "icon", "aria-hidden": "true", text: i.icon }),
+      this.el("div", { class: "body" }, [
+        this.el("h3", { text: i.title }), this.el("p", { text: i.text }),
+        this.el("div", { class: "tags" }, i.tags.map(t => this.tag(t)))
+      ])
+    ])));
+  }
+
+  renderExperience() {
+    this.cfg.experience.forEach(e => this.$("timeline").append(this.el("li", {}, [
+      this.el("div", { class: "when", text: e.when }), this.el("h3", { text: e.role }),
+      this.el("div", { class: "where", text: e.company }), this.el("p", { text: e.text })
+    ])));
+  }
+
+  renderSkills() {
+    const track = this.$("marquee");
+    [0, 1].forEach(() => this.cfg.marquee.forEach(n => track.append(this.tag(n)))); // twice = seamless loop
+    this.cfg.skills.forEach(g => this.$("skills").append(this.el("div", { class: "skill-group" }, [
+      this.el("h3", { text: g.group }), this.el("div", {}, g.items.map(i => this.tag(i)))
+    ])));
+  }
+
+  renderStats() {
+    const s = this.cfg.stats, a = s.accent, tx = s.text;
+    const cards = [
+      { alt: "GitHub stats", wide: false, src: `https://github-readme-stats.vercel.app/api?username=${s.githubUser}&show_icons=true&hide_border=true&bg_color=00000000&title_color=${a}&icon_color=${a}&text_color=${tx}` },
+      { alt: "Top languages", wide: false, src: `https://github-readme-stats.vercel.app/api/top-langs/?username=${s.githubUser}&layout=compact&hide_border=true&bg_color=00000000&title_color=${a}&text_color=${tx}` },
+      { alt: "GitHub streak", wide: true, src: `https://github-readme-streak-stats.herokuapp.com/?user=${s.githubUser}&hide_border=true&background=00000000&ring=${a}&fire=${a}&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=${a}&sideLabels=${tx}&dates=77727f` },
+      { alt: "LeetCode stats", wide: false, src: `https://leetcard.jacoblin.cool/${s.leetcodeUser}?theme=dark` },
+      { alt: "Codewars stats", wide: false, src: `https://github.r2v.ch/codewars?user=${s.codewarsUser}&stroke=%23${a}` }
+    ];
+    cards.forEach(c => {
+      const img = this.el("img", { src: c.src, alt: c.alt, loading: "lazy" });
+      const box = this.el("div", { class: `stat ${c.wide ? "wide" : ""}` }, [img]);
+      img.addEventListener("error", () => box.remove());
+      this.$("stats-grid").append(box);
+    });
+  }
+
+  renderContact() {
+    const { contact, links } = this.cfg, box = this.$("contact-links");
+    this.$("contact-title").textContent = contact.title;
+    this.$("contact-lead").textContent = contact.lead;
+    if (links.email) box.append(this.el("a", { class: "btn primary", href: `mailto:${links.email}`, text: "Send an email" }));
+    if (links.linkedin) box.append(this.el("a", { class: "btn", href: links.linkedin, target: "_blank", rel: "noopener", text: "LinkedIn" }));
+    if (links.github) box.append(this.el("a", { class: "btn", href: links.github, target: "_blank", rel: "noopener", text: "GitHub" }));
+    if (links.discord) box.append(this.el("a", { class: "btn", href: links.discord, target: "_blank", rel: "noopener", text: "Discord" }));
+    this.$("footer").textContent = this.cfg.site.footer;
+  }
+
+  render() {
+    this.renderHero(); this.renderAbout(); this.renderProjects(); this.renderHighlights();
+    this.renderExperience(); this.renderSkills(); this.renderStats(); this.renderContact();
+  }
+}
+
+new Page(CONFIG).render();
+</script>
+</body>
+</html>
