@@ -444,18 +444,18 @@ const CONFIG = {
     {
       state: "featured", title: "Finished", note: "", columns: 1,
       items: [{
-        title: "sefaz-rs", badge: "Featured",
+        title: "Key To Cart", badge: "Featured",
         summary: "A production-style ingestion and processing pipeline that extracts electronic consumer invoices (NFC-e) from the SEFAZ-RS portal and produces structured datasets for downstream analysis.",
         details: "Designed as a configuration-driven pipeline with separated ingestion, parsing and export responsibilities, retry handling, structured logging and reusable components. The project emphasizes operational reliability and maintainability rather than application features.",
         flow: ["Source CSV", "Ingestion", "Raw HTML", "Parsing", "Structured output"],
         tags: ["Python", "ETL", "Ingestion", "OOP", "Observability"],
-        url: "https://github.com/saradfrz/sefaz-rs", linkText: "View on GitHub"
+        url: "https://github.com/saradfrz/key-to-cart", linkText: "View on GitHub"
       }]
     },
     {
       state: "wip", title: "In progress", note: "Being built now", columns: 1,
       items: [{
-        title: "data-forge", badge: "In progress",
+        title: "Data Forge", badge: "In progress",
         summary: "A containerized data platform that simulates a production ETL/ELT environment using Medallion Architecture and separated processing layers.",
         details: "Spark, PostgreSQL and Jupyter run as a reproducible local platform through Docker Compose, with clear boundaries between ingestion, transformation and serving. The project emphasizes architecture, data-layer separation, reproducibility and operational simplicity.",
         flow: ["Bronze: raw JSON", "Silver: PostgreSQL", "Gold: Parquet"],
