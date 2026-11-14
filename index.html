@@ -3,17 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sara Fernandez | Senior Data Engineer</title>
-<link
-  rel="icon"
-  type="image/svg+xml"
-  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050407'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23ffffff'%3ESF%3C/text%3E%3C/svg%3E"
->
+<title>Sara Fernandez | Senior Data Engineer | Technical Lead | Data Architecture</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050407'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23ffffff'%3ESF%3C/text%3E%3C/svg%3E">
 <meta name="description" content="Senior Data Engineer building data platforms, lineage and agentic AI systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-
 <style>
   /* ============================================================
      THEME TOKENS: change colors and fonts here
@@ -21,8 +16,8 @@
   :root {
     --black: #000000;
     --white: #ffffff;
-    --magenta: #ff2bd6;
-    --magenta-deep: #b80f96;
+    --magenta: #e81c5d;
+    --magenta-deep: #a8093c;
     --haze: #6e4ba0;            /* muted violet, used only inside the nebula */
     --grey-100: #ebe9ef;
     --grey-300: #b0abba;
@@ -244,419 +239,167 @@
     .marquee { -webkit-mask-image: none; mask-image: none; }
     html { scroll-behavior: auto; }
   }
+
+/* Static template helpers */
+#project-groups > .subhead:first-child { margin-top: 0; }
+#footer { margin-top: 40px; }
+
 </style>
 </head>
-
 <body>
 <div class="nebula" aria-hidden="true"></div>
-
 <header>
-  <!-- Cover slot: set CONFIG.cover.image. Empty = dark CSS nebula fallback. -->
-  <div class="cover" id="cover"></div>
+  <div class="cover" id="cover"><img src="https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/nebulae.png" alt="nebulae"></div>
   <div class="wrap identity">
-    <div class="avatar" id="avatar"></div>
+    <div class="avatar" id="avatar">
+<img src="https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/sara_profile.jpg" alt="Portrait of Sara Fernandez">    </div>
     <div>
-      <h1 id="name"></h1>
-      <p class="role" id="role"></p>
-      <p class="typing" id="typing" aria-live="off"><span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
-      <p class="tagline" id="tagline"></p>
-      <div class="actions" id="actions"></div>
+      <h1 id="name">Sara Fernandez</h1>
+      <p class="role" id="role">Senior Data Engineer | Technical Lead | Data Architecture</p>
+      <p class="typing" id="typing" aria-live="off"><span id="typed">Architecting and building enterprise data platforms</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="tagline" id="tagline">I architect, build, and scale enterprise data platforms, taking technical ownership from design and implementation to production deployment, performance optimization, and operational reliability.</p>
+      <div class="actions" id="actions">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn" href="https://www.linkedin.com/in/saradfrz/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/saradfrz" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
   </div>
 </header>
-
 <main class="wrap">
   <section id="about" aria-labelledby="about-title">
     <h2 id="about-title">About</h2>
     <div class="about">
-      <div id="about-text"></div>
-      <ul class="facts" id="facts"></ul>
+      <div id="about-text"><p>Senior Data Engineer and Technical Lead at AGCO, with 15 years of software engineering experience and five years specializing in data engineering. I developed the South America Data Lineage platform from the ground up and authored the initial technical assessment for migrating our legacy AWS data stack to Databricks on GCP.</p><p>I design and implement enterprise data platforms, distributed processing pipelines, and analytics solutions across cloud and on-premises environments. My expertise spans data architecture, integration, modeling, batch and incremental processing, governance, lineage, quality, and observability.</p><p>I take end-to-end technical ownership, from solution architecture and implementation through production deployment, performance optimization, and operational reliability. I focus on maintainable systems, reproducible execution, and clear operational ownership.</p><p>My background in enterprise software and financial systems gives me a strong understanding of business processes. I apply that experience to data engineering, building reliable solutions aligned with operational and business requirements.</p><p>I also mentor engineers, onboard technical talent, and contribute to engineering team development through documentation, technical training, and knowledge transfer.</p></div>
+      <ul class="facts" id="facts"><li><b>Data Architecture</b><span>Enterprise data platforms, distributed systems, cloud architecture, data modeling, platform modernization and migration</span></li><li><b>Data Engineering</b><span>Databricks, Snowflake, Apache Spark, Delta Lake, Python, SQL, dbt, ETL/ELT, batch and incremental processing</span></li><li><b>Reliability &amp; Performance</b><span>Performance optimization, data quality, observability, data lineage, governance and operational reliability</span></li><li><b>Technical Leadership</b><span>End-to-end technical ownership, solution design, engineering execution, cross-functional delivery and mentoring</span></li></ul>
     </div>
   </section>
-
   <section id="highlights" aria-labelledby="hl-title">
-    <h2 id="hl-title"></h2>
-    <p class="lead" id="hl-lead"></p>
-    <div class="grid two" id="highlight-grid"></div>
+    <h2 id="hl-title">Selected engineering achievements</h2>
+    <p class="lead" id="hl-lead">Enterprise data platforms and engineering initiatives I have designed, implemented or led.</p>
+    <div class="grid two" id="highlight-grid">
+      <article class="card highlight">
+        <div class="icon" aria-hidden="true">🔗</div>
+        <div class="body"><h3>South America Data Lineage Platform</h3><p>Designed, implemented, documented and deployed an end-to-end data lineage platform for South America, connecting metadata across ETL pipelines, Amazon Redshift tables, Tableau assets and business data products to improve operational traceability.</p><div class="tags"><img class="badge" src="https://img.shields.io/badge/Data_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Lineage-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Lineage" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Amazon_Redshift-8C4FFF?style=flat-square&amp;logo=&amp;logoColor=white" alt="Amazon Redshift" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Tableau-E97627?style=flat-square&amp;logo=&amp;logoColor=white" alt="Tableau" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Governance-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Governance" loading="lazy" height="22"></div></div>
+      </article>
+      <article class="card highlight">
+        <div class="icon" aria-hidden="true">☁️</div>
+        <div class="body"><h3>AWS to Databricks Migration Assessment</h3><p>Authored the initial technical assessment for migrating the legacy AWS data stack to Databricks on GCP, evaluating existing platform assets, migration readiness, and architectural considerations for scalability, governance and maintainability.</p><div class="tags"><img class="badge" src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&amp;logo=&amp;logoColor=black" alt="AWS" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Databricks-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Databricks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/GCP-4285F4?style=flat-square&amp;logo=googlecloud&amp;logoColor=white" alt="GCP" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Platform_Modernization-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Platform Modernization" loading="lazy" height="22"></div></div>
+      </article>
+      <article class="card highlight">
+        <div class="icon" aria-hidden="true">🌐</div>
+        <div class="body"><h3>Enterprise Data Portal</h3><p>Led development of a self-service data platform for governed data access and visibility across business units, integrating Apache Airflow, GCP, Azure, Superset and Power BI.</p><div class="tags"><img class="badge" src="https://img.shields.io/badge/Data_Platform-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Platform" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&amp;logo=apacheairflow&amp;logoColor=white" alt="Apache Airflow" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/GCP-4285F4?style=flat-square&amp;logo=googlecloud&amp;logoColor=white" alt="GCP" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Governance-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Governance" loading="lazy" height="22"></div></div>
+      </article>
+      <article class="card highlight">
+        <div class="icon" aria-hidden="true">♻️</div>
+        <div class="body"><h3>Modular extraction platform modernization</h3><p>Re-architected a legacy monolithic extraction platform into parameterized, reusable Python components with structured logging, improving maintainability, traceability and operational support.</p><div class="tags"><img class="badge" src="https://img.shields.io/badge/ETL%2FELT-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="ETL/ELT" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Modularity-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Modularity" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Observability-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Observability" loading="lazy" height="22"></div></div>
+      </article>
+    </div>
   </section>
-
   <section id="experience" aria-labelledby="exp-title">
     <h2 id="exp-title">Experience</h2>
-    <ol class="timeline" id="timeline"></ol>
+    <ol class="timeline" id="timeline">
+<li><div class="when">Mar 2026 to now</div><h3>Senior Data Engineer</h3><div class="where">AGCO Corporation</div><p>Designed, implemented, documented and deployed the South America Data Lineage platform. Authored the initial technical assessment for migrating the legacy AWS data stack to Databricks on GCP. Develop architecture and modernization strategies for the South America Data Platform, collaborating with global stakeholders to assess migration readiness, inventory platform assets, and establish data product, lineage, cataloging and quality standards.</p></li><li><div class="when">May 2025 to Mar 2026</div><h3>Data Engineer (contractor)</h3><div class="where">A-Players, for AGCO</div><p>Translated business requirements across finance, marketing, manufacturing and logistics into ETL specifications and data pipelines. Worked across legacy and modern platforms including Pentaho, Redshift, Rundeck, AWS S3, Databricks, Python, SQL and PySpark, contributing to modularity, observability and governance.</p></li><li><div class="when">May 2024 to Feb 2025</div><h3>Data Engineer</h3><div class="where">Orbia</div><p>Led development of a self-service data platform for governed access and visibility, integrating Airflow, GCP, Azure, Superset and Power BI. Worked across data delivery, cloud infrastructure and CI/CD to support reliable analytics consumption.</p></li><li><div class="when">Jul 2021 to Apr 2024</div><h3>Data Engineer</h3><div class="where">Distrito</div><p>Modernized a legacy ETL architecture into a modular Python-based pipeline with parameterized components, reusable classes and structured logging, improving maintainability, traceability and operational support while exposing curated datasets through REST APIs.</p></li><li><div class="when">Jan to Jul 2019</div><h3>Intern</h3><div class="where">John Deere</div><p>Worked across the ISA-95 stack, connecting industrial systems and data flows from PLC and SCADA environments through MES and analytics. This foundation shaped my systems-oriented approach to data architecture and industrial data platforms.</p></li>    </ol>
   </section>
-
   <section id="projects" aria-labelledby="projects-title">
     <h2 id="projects-title">Projects</h2>
-    <p class="lead" id="projects-lead"></p>
-    <div id="project-groups"></div>
+    <p class="lead" id="projects-lead">Hands-on data engineering projects covering distributed processing, cloud data platforms, batch and streaming architectures, orchestration, infrastructure automation, and operational reliability. The projects explore architectural trade-offs, performance, and cost.</p>
+    <div id="project-groups">
+      <div class="subhead"><h3>Completed Projects</h3><p>Two implementations of a common historical trade processing workload, exploring warehouse and lakehouse architectures.</p></div>
+      <div class="grid">
+        <article class="card featured">
+          <span class="pill star">Featured</span>
+          <h3>Bitcoin Data Pipeline Benchmark — Snowflake</h3>
+          <p>An end-to-end Snowflake data platform processing over one billion historical BTCUSDT trade records. One implementation of a cross-platform engineering benchmark comparing cloud data warehouse and lakehouse architectures.</p>
+<p>The platform implements historical Binance trade ingestion using Python, Parquet staging, dbt SQL transformations, and dependency-driven orchestration using Snowflake Tasks. Medallion Architecture separates raw ingestion, normalized trades and daily summaries, and curated analytical data products. Full-refresh and incremental execution paths support historical backfills, data quality validation, and retention management. Financial analytics include daily OHLC summaries in Silver and 50-day and 200-day simple moving averages, cumulative volume delta (CVD), and volume-weighted average price (VWAP) in Gold. The implementation explores incremental processing, orchestration dependencies, data consistency, and warehouse architecture trade-offs.</p><ol class="flow" aria-label="Pipeline steps"><li>Binance Historical Trade Data</li><li>Python Acquisition &amp; Parquet Conversion</li><li>Snowflake Internal Stage</li><li>Bronze: Raw Trades</li><li>Silver: Typed Trades &amp; Daily Summaries</li><li>Gold: Financial Analytics</li></ol><div class="tags"><img class="badge" src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&amp;logo=dbt&amp;logoColor=white" alt="dbt" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Parquet-50ABF1?style=flat-square&amp;logo=apacheparquet&amp;logoColor=white" alt="Parquet" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Snowflake_Tasks-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake Tasks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Medallion_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Medallion Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Batch_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Batch Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Incremental_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Incremental Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Quality-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Quality" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Orchestration-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Orchestration" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Financial_Analytics-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Financial Analytics" loading="lazy" height="22"></div><a class="card-link" href="https://github.com/saradfrz/bitcoin-pipeline-benchmark-snowflake" target="_blank" rel="noopener">View Repository</a>        </article>
+        <article class="card featured">
+          <span class="pill star">Featured</span>
+          <h3>Bitcoin Data Pipeline Benchmark — Databricks</h3>
+          <p>An end-to-end lakehouse implementation processing over one billion historical BTCUSDT trade records using Apache Spark, Delta Lake, and Databricks. The distributed processing counterpart to the Snowflake implementation of the same benchmark.</p>
+<p>Python acquires historical Binance trade files and stores them in Unity Catalog Volumes. Auto Loader incrementally ingests source files into Delta Lake using Structured Streaming and checkpoints. Spark transformations implement Bronze, Silver, and Gold layers, with Databricks Workflows coordinating execution dependencies. The platform supports full-refresh and incremental processing, historical backfills, and data quality validation. Silver contains normalized trades and daily OHLC summaries; Gold provides 50-day and 200-day simple moving averages, cumulative volume delta (CVD), and volume-weighted average price (VWAP). The implementation explores distributed processing, incremental file ingestion, checkpoint-based recovery, and lakehouse architecture trade-offs.</p><ol class="flow" aria-label="Pipeline steps"><li>Binance Historical Trade Data</li><li>Python Data Acquisition</li><li>Unity Catalog Volume</li><li>Auto Loader &amp; Structured Streaming</li><li>Bronze: Raw Delta Tables</li><li>Silver: Typed Trades &amp; Daily Summaries</li><li>Gold: Financial Analytics</li></ol><div class="tags"><img class="badge" src="https://img.shields.io/badge/Databricks-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Databricks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="Apache Spark" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="PySpark" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Delta_Lake-00ADD8?style=flat-square&amp;logo=&amp;logoColor=white" alt="Delta Lake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Auto_Loader-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Auto Loader" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Unity_Catalog-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Unity Catalog" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Databricks_Workflows-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Databricks Workflows" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Structured_Streaming-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="Structured Streaming" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Medallion_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Medallion Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Distributed_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Distributed Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Incremental_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Incremental Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Quality-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Quality" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Orchestration-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Orchestration" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Financial_Analytics-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Financial Analytics" loading="lazy" height="22"></div><a class="card-link" href="https://github.com/saradfrz/bitcoin-pipeline-benchmark-databricks" target="_blank" rel="noopener">View Repository</a>        </article>
+      </div>
+      <div class="subhead"><h3>Planned Projects</h3><p>Proposed experiments in event-driven systems, infrastructure automation, container orchestration, and cost-efficient cloud deployments.</p></div>
+      <div class="grid">
+        <article class="card planning">
+          <span class="pill plan">Planning</span>
+          <h3>Real-Time Financial Data Pipeline — Kafka &amp; Azure</h3>
+          <p>A planned event-driven data platform for live cryptocurrency market events using Apache Kafka on Azure. Designed as a reproducible, time-bounded experiment measuring streaming performance and cloud infrastructure costs.</p>
+<p>The proposed architecture will consume public cryptocurrency trade events from the Coinbase WebSocket API through a Python producer and publish them to Apache Kafka on Azure infrastructure. A consumer will validate, normalize, and aggregate events into windowed price, volume, and volatility metrics, with raw events and analytical outputs persisted to Azure Blob Storage. Terraform will automate provisioning and teardown, and Docker will package application components. A controlled 10-minute streaming workload will evaluate throughput, end-to-end latency, consumer lag, resource utilization, and estimated versus actual cloud costs across the deployment lifecycle. Planned experiments include consumer recovery, duplicate handling, event-time processing, and delivery guarantees. The project will operate within the constraints of Azure for Students.</p><ol class="flow" aria-label="Pipeline steps"><li>Coinbase WebSocket API</li><li>Python Kafka Producer</li><li>Apache Kafka Topics &amp; Partitions</li><li>Streaming Consumer</li><li>Validation &amp; Windowed Aggregations</li><li>Azure Blob Storage</li><li>Performance &amp; Cost Evaluation</li></ol><div class="tags"><img class="badge" src="https://img.shields.io/badge/Apache_Kafka-231F20?style=flat-square&amp;logo=apachekafka&amp;logoColor=white" alt="Apache Kafka" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure_Blob_Storage-0078D4?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure Blob Storage" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Terraform-844FBA?style=flat-square&amp;logo=terraform&amp;logoColor=white" alt="Terraform" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/WebSocket-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="WebSocket" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Event--Driven_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Event-Driven Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Stream_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Stream Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Infrastructure_as_Code-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Infrastructure as Code" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Observability-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Observability" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Financial_Analytics-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Financial Analytics" loading="lazy" height="22"></div><span class="card-link soon">Repository Coming Soon</span>        </article>
+        <article class="card planning">
+          <span class="pill plan">Planning</span>
+          <h3>Containerized Batch Data Platform — Airflow, dbt &amp; Kubernetes</h3>
+          <p>A planned batch data platform for historical U.S. Treasury yield curve data using Apache Airflow, dbt, DuckDB, and Kubernetes on AWS. Designed to demonstrate reproducible batch execution, modular transformations, and resource-efficient infrastructure.</p>
+<p>The proposed platform will ingest public U.S. Treasury yield curve data with Python and preserve source CSV files in an Amazon S3 Bronze layer. Apache Airflow will orchestrate containerized ingestion, transformation, validation, and publication tasks through Kubernetes. dbt and DuckDB will implement SQL transformations and write normalized Silver datasets and curated Gold data products as Parquet files in S3. Analytical models will calculate yield spreads, maturity comparisons, rolling interest rate averages, and inversion indicators. A lightweight Kubernetes deployment on Amazon EC2 will support the experiment without requiring a managed Kubernetes control plane. Engineering objectives include deterministic execution, idempotency, dependency management, data quality, and reproducible deployments within AWS educational environment constraints. The architecture is deliberately designed to explore orchestration and container scheduling rather than minimize complexity for this small dataset.</p><ol class="flow" aria-label="Pipeline steps"><li>U.S. Treasury Historical Yield Data</li><li>Containerized Python Ingestion</li><li>Amazon S3: Bronze</li><li>dbt &amp; DuckDB Transformations</li><li>Amazon S3: Silver</li><li>Amazon S3: Gold</li><li>Data Quality &amp; Operational Reporting</li></ol><div class="tags"><img class="badge" src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&amp;logo=&amp;logoColor=black" alt="AWS" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Amazon_S3-569A31?style=flat-square&amp;logo=&amp;logoColor=white" alt="Amazon S3" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Amazon_EC2-FF9900?style=flat-square&amp;logo=&amp;logoColor=white" alt="Amazon EC2" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&amp;logo=kubernetes&amp;logoColor=white" alt="Kubernetes" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&amp;logo=apacheairflow&amp;logoColor=white" alt="Apache Airflow" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&amp;logo=dbt&amp;logoColor=white" alt="dbt" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&amp;logo=duckdb&amp;logoColor=black" alt="DuckDB" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Parquet-50ABF1?style=flat-square&amp;logo=apacheparquet&amp;logoColor=white" alt="Parquet" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Medallion_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Medallion Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Batch_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Batch Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Quality-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Quality" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Orchestration-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Orchestration" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Financial_Analytics-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Financial Analytics" loading="lazy" height="22"></div><span class="card-link soon">Repository Coming Soon</span>        </article>
+      </div>
+    </div>
   </section>
-
   <section id="skills" aria-labelledby="skills-title">
     <h2 id="skills-title">Toolbox</h2>
-    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
-    <div class="skills" id="skills"></div>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"><img class="badge" src="https://img.shields.io/badge/Databricks-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Databricks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="Apache Spark" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Delta_Lake-00ADD8?style=flat-square&amp;logo=&amp;logoColor=white" alt="Delta Lake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&amp;logo=dbt&amp;logoColor=white" alt="dbt" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Unity_Catalog-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Unity Catalog" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Structured_Streaming-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="Structured Streaming" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&amp;logo=apacheairflow&amp;logoColor=white" alt="Apache Airflow" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&amp;logo=&amp;logoColor=black" alt="AWS" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/GCP-4285F4?style=flat-square&amp;logo=googlecloud&amp;logoColor=white" alt="GCP" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Amazon_Redshift-8C4FFF?style=flat-square&amp;logo=&amp;logoColor=white" alt="Amazon Redshift" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Parquet-50ABF1?style=flat-square&amp;logo=apacheparquet&amp;logoColor=white" alt="Apache Parquet" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure DevOps" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&amp;logo=githubactions&amp;logoColor=white" alt="GitHub Actions" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Git-F05032?style=flat-square&amp;logo=git&amp;logoColor=white" alt="Git" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&amp;logo=linux&amp;logoColor=black" alt="Linux" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Databricks-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Databricks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="Apache Spark" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Delta_Lake-00ADD8?style=flat-square&amp;logo=&amp;logoColor=white" alt="Delta Lake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&amp;logo=dbt&amp;logoColor=white" alt="dbt" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Unity_Catalog-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Unity Catalog" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Structured_Streaming-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="Structured Streaming" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&amp;logo=apacheairflow&amp;logoColor=white" alt="Apache Airflow" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&amp;logo=&amp;logoColor=black" alt="AWS" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/GCP-4285F4?style=flat-square&amp;logo=googlecloud&amp;logoColor=white" alt="GCP" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Amazon_Redshift-8C4FFF?style=flat-square&amp;logo=&amp;logoColor=white" alt="Amazon Redshift" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Parquet-50ABF1?style=flat-square&amp;logo=apacheparquet&amp;logoColor=white" alt="Apache Parquet" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure DevOps" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&amp;logo=githubactions&amp;logoColor=white" alt="GitHub Actions" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Git-F05032?style=flat-square&amp;logo=git&amp;logoColor=white" alt="Git" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&amp;logo=linux&amp;logoColor=black" alt="Linux" loading="lazy" height="22"></div></div>
+    <div class="skills" id="skills-grid">
+<div class="skill-group"><h3>Data Platforms &amp; Distributed Processing</h3><div><img class="badge" src="https://img.shields.io/badge/Databricks-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Databricks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="Apache Spark" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="PySpark" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Delta_Lake-00ADD8?style=flat-square&amp;logo=&amp;logoColor=white" alt="Delta Lake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Amazon_Redshift-8C4FFF?style=flat-square&amp;logo=&amp;logoColor=white" alt="Amazon Redshift" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Structured_Streaming-E25A1C?style=flat-square&amp;logo=apachespark&amp;logoColor=white" alt="Structured Streaming" loading="lazy" height="22"></div></div><div class="skill-group"><h3>Data Integration &amp; Orchestration</h3><div><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&amp;logo=dbt&amp;logoColor=white" alt="dbt" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/ETL%2FELT-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="ETL/ELT" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&amp;logo=apacheairflow&amp;logoColor=white" alt="Apache Airflow" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Databricks_Workflows-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Databricks Workflows" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Snowflake_Tasks-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake Tasks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Auto_Loader-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Auto Loader" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Pentaho-005DAA?style=flat-square&amp;logo=&amp;logoColor=white" alt="Pentaho" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Rundeck-F73F39?style=flat-square&amp;logo=rundeck&amp;logoColor=white" alt="Rundeck" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Incremental_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Incremental Processing" loading="lazy" height="22"></div></div><div class="skill-group"><h3>Data Architecture &amp; Storage</h3><div><img class="badge" src="https://img.shields.io/badge/Data_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Modeling-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Modeling" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Distributed_Systems-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Distributed Systems" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Medallion_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Medallion Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Products-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Products" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Platform_Modernization-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Platform Modernization" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Migration_Strategy-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Migration Strategy" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Apache_Parquet-50ABF1?style=flat-square&amp;logo=apacheparquet&amp;logoColor=white" alt="Apache Parquet" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&amp;logo=mysql&amp;logoColor=white" alt="MySQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&amp;logo=&amp;logoColor=white" alt="Oracle" loading="lazy" height="22"></div></div><div class="skill-group"><h3>Cloud &amp; Engineering Operations</h3><div><img class="badge" src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&amp;logo=&amp;logoColor=black" alt="AWS" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/GCP-4285F4?style=flat-square&amp;logo=googlecloud&amp;logoColor=white" alt="GCP" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Amazon_S3-569A31?style=flat-square&amp;logo=&amp;logoColor=white" alt="Amazon S3" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/CI%2FCD-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="CI/CD" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=flat-square&amp;logo=&amp;logoColor=white" alt="Azure DevOps" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&amp;logo=githubactions&amp;logoColor=white" alt="GitHub Actions" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Git-F05032?style=flat-square&amp;logo=git&amp;logoColor=white" alt="Git" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&amp;logo=linux&amp;logoColor=black" alt="Linux" loading="lazy" height="22"></div></div><div class="skill-group"><h3>Governance &amp; Operational Reliability</h3><div><img class="badge" src="https://img.shields.io/badge/Unity_Catalog-FF3621?style=flat-square&amp;logo=databricks&amp;logoColor=white" alt="Unity Catalog" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Lineage-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Lineage" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Governance-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Governance" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Quality-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Quality" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Observability-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Observability" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Cataloging-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Cataloging" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Performance_Optimization-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Performance Optimization" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Operational_Reliability-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Operational Reliability" loading="lazy" height="22"></div></div><div class="skill-group"><h3>Technical Leadership &amp; Delivery</h3><div><img class="badge" src="https://img.shields.io/badge/Solution_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Solution Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/End--to--End_Technical_Ownership-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="End-to-End Technical Ownership" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Cross--Functional_Delivery-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Cross-Functional Delivery" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Technical_Documentation-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Technical Documentation" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Mentoring-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Mentoring" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Knowledge_Transfer-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Knowledge Transfer" loading="lazy" height="22"></div></div>    </div>
   </section>
-
   <section id="contact" class="contact" aria-labelledby="contact-title">
-    <h2 id="contact-title"></h2>
-    <p class="lead" id="contact-lead"></p>
-    <div class="links" id="contact-links"></div>
+    <h2 id="contact-title">Let&#39;s talk</h2>
+    <p class="lead" id="contact-lead">Open to opportunities in senior and lead data engineering, data architecture, distributed processing, enterprise data platforms, and cloud modernization.</p>
+    <div class="links" id="contact-links">
+<a class="btn primary" href="mailto:saradfrz@gmail.com">Send an email</a>      <a class="btn" href="https://www.linkedin.com/in/saradfrz/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/saradfrz" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://discordapp.com/users/702235784794734631" target="_blank" rel="noopener">Discord</a>
+    </div>
   </section>
 </main>
-
-<footer class="wrap" id="footer" style="margin-top: 40px;"></footer>
-
-<noscript><p style="padding:24px;color:#fff">This page loads its content from the CONFIG block and needs JavaScript.</p></noscript>
-
+<footer class="wrap" id="footer">
+  <div class="footer-inner">
+    <p class="footer-copy">© <span id="year">2026</span> Sara Fernandez. All rights reserved.</p>
+    <ul class="footer-links">
+<li><a class="" href="https://github.com/saradfrz" target="_blank" rel="noopener">GitHub</a></li><li><a class="" href="https://www.linkedin.com/in/saradfrz/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:saradfrz@gmail.com">Email</a></li>    </ul>
+    <a class="to-top" href="#cover">Back to top ↑</a>
+  </div>
+</footer>
+<script type="application/json" id="typing-data">["Architecting and building enterprise data platforms", "Distributed Systems | Databricks | Spark | Python", "Large-scale Data Processing | Batch \u0026 Streaming", "Cloud Architecture | Platform Modernization", "End-to-End Engineering | Technical Leadership"]</script>
 <script>
-/* ==================================================================
-   CONFIG: every editable value lives here. Edit this block only.
-   ================================================================== */
-const CONFIG = {
-  site: { title: "Sara Fernandez | Senior Data Engineer | Data Platforms & Architecture", footer: "Sara Fernandez. All rights reserved." },
-
-  /* ---- IMAGES: point these to your files or URLs ---- */
-  profile: {
-    image: "https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/sara_profile.jpg",                       // e.g. "img/sara.jpg" (square, 600x600 or larger)
-    alt: "Portrait of Sara Fernandez",
-    initials: "SF"                   // shown while image is empty
-  },
-  cover: {
-    image: "https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/nebulae.png",                       // e.g. "img/cover.jpg" (wide, about 2400x700)
-    alt: "nebulae"
-  },
-
-  /* ---- IDENTITY ---- */
-  name: "Sara Fernandez",
-  role: "Senior Data Engineer | Data Platforms & Architecture",
-  typing: [                          // lines the typing animation cycles through
-    "Designing scalable data platforms",
-    "Data architecture | Cloud | Databricks | Spark",
-    "Modernization | Migration | Platform Strategy",
-    "Data lineage | Governance | Quality | Observability",
-    "Technical leadership | Enablement | Knowledge transfer"
-  ],
-  tagline: "I design data platforms and architecture that make data scalable, governed, observable and operationally sustainable — from legacy modernization and cloud migration to lineage, data products and AI-ready foundations.",
-
-  about: [
-    "Senior Data Engineer and technical lead at AGCO. I developed the South America Data Lineage platform from the ground up and wrote the initial technical assessment for migrating our legacy AWS stack to Databricks on GCP.",
-    "My work sits at the intersection of data pipelines and the platforms that support them: defining technical patterns, assessing migration readiness, improving observability and governance, establishing data product standards, and making systems maintainable beyond the person who built them.",
-    "I also work on the operational side of engineering — technical enablement, documentation, knowledge transfer, onboarding and partner-team training — because a platform is only successful when teams can operate and evolve it reliably."
-  ],
-  facts: [
-    { title: "Architecture", text: "Data platforms, cloud architecture, modernization, migration strategy" },
-    { title: "Engineering", text: "ETL/ELT, Spark, Databricks, orchestration, data products, platform operations" },
-    { title: "Governance", text: "Data lineage, cataloging, data quality, observability, standards" },
-    { title: "Leadership", text: "Technical enablement, mentoring, documentation, knowledge transfer" }
-  ],
-
-  /* ---- LINKS (leave "" to hide) ---- */
-  links: {
-    github: "https://github.com/saradfrz",
-    linkedin: "https://www.linkedin.com/in/saradfrz/",
-    email: "saradfrz@gmail.com",
-    discord: "https://discordapp.com/users/702235784794734631"
-  },
-
-  /* ---- TECH BADGES: name -> shields.io color + simple-icons logo slug ---- */
-  tech: {
-    "Databricks":      { color: "FF3621", logo: "databricks" },
-    "Apache Spark":    { color: "E25A1C", logo: "apachespark" },
-    "PySpark":         { color: "E25A1C", logo: "apachespark" },
-    "Spark":           { color: "E25A1C", logo: "apachespark" },
-    "Airflow":         { color: "017CEE", logo: "apacheairflow" },
-    "dbt":             { color: "FF694B", logo: "dbt" },
-    "Docker":          { color: "2496ED", logo: "docker" },
-    "Docker Compose":  { color: "2496ED", logo: "docker" },
-    "Kafka":           { color: "3a3a3a", logo: "apachekafka" },
-    "Python":          { color: "3776AB", logo: "python" },
-    "SQL":             { color: "4479A1", logo: "postgresql" },
-    "Flask":           { color: "3a3a3a", logo: "flask" },
-    "Django":          { color: "092E20", logo: "django" },
-    "Selenium":        { color: "43B02A", logo: "selenium" },
-    "Jupyter":         { color: "F37626", logo: "jupyter" },
-    "Parquet":         { color: "50ABF1", logo: "apacheparquet" },
-    "AWS":             { color: "FF9900", logo: "amazonwebservices", logoColor: "black" },
-    "GCP":             { color: "4285F4", logo: "googlecloud" },
-    "Azure":           { color: "0078D4", logo: "microsoftazure" },
-    "Redshift":        { color: "8C4FFF", logo: "amazonredshift" },
-    "PostgreSQL":      { color: "4169E1", logo: "postgresql" },
-    "Oracle":          { color: "F80000", logo: "oracle" },
-    "Tableau":         { color: "E97627", logo: "tableau" },
-    "Power BI":        { color: "F2C811", logo: "powerbi", logoColor: "black" },
-    "Superset":        { color: "20A6C9", logo: "apachesuperset" },
-    "Streamlit":       { color: "FF4B4B", logo: "streamlit" },
-    "Looker":          { color: "4285F4", logo: "looker" },
-    "Neo4j":           { color: "008CC1", logo: "neo4j" },
-    "Git":             { color: "F05032", logo: "git" },
-    "Linux":           { color: "FCC624", logo: "linux", logoColor: "black" }
-  },
-  marquee: ["Databricks", "Apache Spark", "Python", "SQL", "Airflow", "dbt", "Docker", "Kafka", "AWS", "GCP", "Azure",
-            "PostgreSQL", "Redshift", "Oracle", "Tableau", "Power BI", "Superset", "Streamlit", "Neo4j", "Git", "Linux"],
-
-  /* ---- WORK HIGHLIGHTS ---- */
-  highlights: {
-    title: "Work highlights",
-    lead: "Things I've led or shipped on the job.",
-    items: [
-      { icon: "\uD83D\uDD17", title: "South America Data Lineage platform",
-        text: "Lead the design, implementation, documentation and production deployment of an end-to-end lineage platform spanning ETL pipelines, Redshift tables, Tableau assets and business data products — turning platform metadata into operational traceability.",
-        tags: ["Data Architecture", "Data Lineage", "Redshift", "Tableau", "Governance"] },
-      { icon: "\uD83E\uDD16", title: "RAG capstone, AGCO AI Literacy (Advanced)",
-        text: "Designed an end-to-end Retrieval-Augmented Generation solution covering embeddings, vector storage, retrieval pipelines and an application layer — exploring how governed enterprise data can become an AI-ready knowledge foundation.",
-        tags: ["RAG", "Embeddings", "Vector DB", "LLMOps"] },
-      { icon: "\uD83C\uDF10", title: "Enterprise Data Portal",
-        text: "Led a self-service data platform for governed data access and visibility across business units, integrating orchestration, cloud infrastructure, BI and data-serving components.",
-        tags: ["Data Platform", "Airflow", "GCP", "Azure", "Governance"] },
-      { icon: "\u267B\uFE0F", title: "Modular extraction platform modernization",
-        text: "Re-architected a legacy monolithic extraction platform into parameterized, reusable components with clear logging and operational boundaries, improving maintainability and traceability.",
-        tags: ["ETL", "Python", "SQL", "Modularity", "Observability"] }
-    ]
-  },
-
-  /* ---- EXPERIENCE ---- */
-  experience: [
-    { when: "Mar 2026 to now", role: "Senior Data Engineer", company: "AGCO Corporation",
-      text: "Lead the design, implementation, documentation and production deployment of the South America Data Lineage platform. Develop architecture, migration and modernization strategies for the South America Data Platform, supporting the transition from legacy AWS solutions to Databricks on GCP with a focus on scalability, governance and maintainability. Partner with global stakeholders to assess migration readiness, quantify platform assets, define data product standards, and promote lineage, cataloging, data quality and governance." },
-    { when: "May 2025 to Mar 2026", role: "Data Engineer (contractor)", company: "A-Players, for AGCO",
-      text: "Translated business requirements across finance, marketing, manufacturing and logistics into ETL specifications and data pipelines. Worked across legacy and modern platforms including Pentaho, Redshift, Rundeck, AWS S3, Databricks, Python, SQL and PySpark, contributing to modularity, observability and governance." },
-    { when: "May 2024 to Feb 2025", role: "Data Engineer", company: "Orbia",
-      text: "Led development of a self-service data platform for governed access and visibility, integrating Airflow, GCP, Azure, Superset and Power BI. Worked across data delivery, cloud infrastructure and CI/CD to support reliable analytics consumption." },
-    { when: "Jul 2021 to Apr 2024", role: "Data Engineer", company: "Distrito",
-      text: "Modernized a legacy ETL architecture into a modular Python-based pipeline with parameterized components, reusable classes and structured logging, improving maintainability, traceability and operational support while exposing curated datasets through REST APIs." },
-    { when: "Jan to Jul 2019", role: "Intern", company: "John Deere",
-      text: "Worked across the ISA-95 stack, connecting industrial systems and data flows from PLC and SCADA environments through MES and analytics. This foundation shaped my systems-oriented approach to data architecture and industrial data platforms." }
-  ],
-
-  /* ---- SKILLS (names found in "tech" become badges, others become chips) ---- */
-  skills: [
-    { group: "Data Architecture", items: ["Data platforms", "Data architecture", "Medallion architecture", "Data products", "Modernization", "Migration strategy"] },
-    { group: "Data Engineering", items: ["Databricks", "Apache Spark", "PySpark", "Airflow", "dbt", "Kafka"] },
-    { group: "Cloud & Infrastructure", items: ["AWS", "GCP", "Azure", "Docker", "CI/CD", "Platform operations"] },
-    { group: "Data Systems", items: ["SQL", "Python", "Redshift", "PostgreSQL", "Oracle", "Parquet"] },
-    { group: "Governance & Reliability", items: ["Data lineage", "Data quality", "Data catalog", "Governance", "Observability", "Traceability"] },
-    { group: "AI & Analytics", items: ["RAG", "Knowledge graphs", "Multi-agent systems", "LLMOps", "Tableau", "Power BI"] }
-  ],
-
-  /* ---- PROJECTS: state is "featured" (finished), "wip" or "planning" ---- */
-  projectsLead: "Projects focused on data platform engineering, architecture patterns, scalable pipelines and the infrastructure required to operate them reliably.",
-  projectGroups: [
-    {
-      state: "featured", title: "Finished", note: "", columns: 1,
-      items: [{
-        title: "Key To Cart", badge: "Featured",
-        summary: "A production-style ingestion and processing pipeline that extracts electronic consumer invoices (NFC-e) from the SEFAZ-RS portal and produces structured datasets for downstream analysis.",
-        details: "Designed as a configuration-driven pipeline with separated ingestion, parsing and export responsibilities, retry handling, structured logging and reusable components. The project emphasizes operational reliability and maintainability rather than application features.",
-        flow: ["Source CSV", "Ingestion", "Raw HTML", "Parsing", "Structured output"],
-        tags: ["Python", "ETL", "Ingestion", "OOP", "Observability"],
-        url: "https://github.com/saradfrz/key-to-cart", linkText: "View on GitHub"
-      }]
-    },
-    {
-      state: "wip", title: "In progress", note: "Being built now", columns: 1,
-      items: [{
-        title: "Data Forge", badge: "In progress",
-        summary: "A containerized data platform that simulates a production ETL/ELT environment using Medallion Architecture and separated processing layers.",
-        details: "Spark, PostgreSQL and Jupyter run as a reproducible local platform through Docker Compose, with clear boundaries between ingestion, transformation and serving. The project emphasizes architecture, data-layer separation, reproducibility and operational simplicity.",
-        flow: ["Bronze: raw JSON", "Silver: PostgreSQL", "Gold: Parquet"],
-        tags: ["Spark", "PostgreSQL", "Jupyter", "Docker Compose", "Parquet", "Medallion"],
-        url: "https://github.com/saradfrz/data-forge", linkText: "View on GitHub"
-      }]
-    },
-    {
-      state: "planning", title: "Planning", note: "Designed on paper, not built yet", columns: 2,
-      items: [
-        {
-          title: "TickStream Lakehouse", badge: "Planning",
-          metric: { value: "~2M", label: "FX ticks per day" },
-          summary: "A medallion-architecture pipeline that ingests FX ticks through batch backfill and Kafka streaming, producing OHLC candles and reconciled gold-layer metrics.",
-          flow: ["Batch backfill + Kafka", "Bronze", "Silver", "Gold: OHLC and metrics"],
-          tags: ["Kafka", "Medallion", "Streaming", "Batch backfill", "OHLC"],
-          url: "", linkText: "Repository coming soon"
-        },
-        {
-          title: "RepoSensei", badge: "Planning",
-          summary: "A multi-agent RAG tutor that turns an obscure GitHub repository into a guided learning path, using Neo4j for both the code graph and vector search.",
-          flow: ["GitHub repo", "Neo4j: graph + vectors", "Multi-agent tutor", "Learning path"],
-          tags: ["Neo4j", "RAG", "Multi-agent", "Knowledge graph"],
-          url: "", linkText: "Repository coming soon"
-        }
-      ]
-    }
-  ],
-  
-  contact: { title: "Let's talk", lead: "Open to conversations about data platforms, data architecture, cloud modernization, governance, infrastructure and AI-ready data foundations." }
-};
-
-/* ==================================================================
-   RENDERER: reads CONFIG and builds the page. No content below.
-   ================================================================== */
-class Page {
-  constructor(cfg) { this.cfg = cfg; }
-
-  $(id) { return document.getElementById(id); }
-
-  el(tag, props = {}, children = []) {
-    const node = document.createElement(tag);
-    for (const [k, v] of Object.entries(props)) {
-      if (v === undefined || v === null || v === "") continue;
-      if (k === "text") node.textContent = v;
-      else if (k === "class") node.className = v;
-      else node.setAttribute(k, v);
-    }
-    for (const c of [].concat(children)) if (c) node.append(c);
-    return node;
-  }
-
-  /* shields.io label escaping: "-" -> "--", "_" -> "__", " " -> "_" */
-  badgeUrl(name, t) {
-    const label = encodeURIComponent(name.replace(/-/g, "--").replace(/_/g, "__").replace(/ /g, "_"));
-    return `https://img.shields.io/badge/${label}-${t.color}?style=flat-square&logo=${t.logo}&logoColor=${t.logoColor || "white"}`;
-  }
-
-  /* known tech -> icon badge; anything else -> plain chip */
-  tag(name) {
-    const chip = () => this.el("span", { class: "chip", text: name });
-    const t = this.cfg.tech[name];
-    if (!t) return chip();
-    const img = this.el("img", { class: "badge", src: this.badgeUrl(name, t), alt: name, loading: "lazy", height: "22" });
-    img.addEventListener("error", () => img.replaceWith(chip()));
-    return img;
-  }
-
-  renderHero() {
-    const { cfg } = this;
-    document.title = cfg.site.title;
-    if (cfg.cover.image) this.$("cover").append(this.el("img", { src: cfg.cover.image, alt: cfg.cover.alt || "" }));
-    this.$("avatar").append(cfg.profile.image
-      ? this.el("img", { src: cfg.profile.image, alt: cfg.profile.alt })
-      : this.el("div", { class: "monogram", text: cfg.profile.initials, role: "img", "aria-label": cfg.profile.alt }));
-    this.$("name").textContent = cfg.name;
-    this.$("role").textContent = cfg.role;
-    this.$("tagline").textContent = cfg.tagline;
-
-    const actions = this.$("actions");
-    actions.append(this.el("a", { class: "btn primary", href: "#projects", text: "See my projects" }));
-    if (cfg.links.linkedin) actions.append(this.el("a", { class: "btn", href: cfg.links.linkedin, target: "_blank", rel: "noopener", text: "LinkedIn" }));
-    if (cfg.links.github) actions.append(this.el("a", { class: "btn", href: cfg.links.github, target: "_blank", rel: "noopener", text: "GitHub" }));
-    this.startTyping();
-  }
-
-  startTyping() {
-    const lines = this.cfg.typing, out = this.$("typed");
-    if (!lines.length) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { out.textContent = lines[0]; return; }
+/* Browser-only enhancements. All portfolio content is rendered by Python. */
+(() => {
+  "use strict";
+  const data = document.getElementById("typing-data");
+  const out = document.getElementById("typed");
+  const lines = JSON.parse(data.textContent);
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let timer;
+  function startTyping() {
+    clearTimeout(timer);
+    if (!lines.length) { out.textContent = ""; return; }
+    if (motion.matches) { out.textContent = lines[0]; return; }
     let line = 0, pos = 0, deleting = false;
-    const tick = () => {
+    out.textContent = "";
+    function tick() {
       const text = lines[line];
       pos += deleting ? -1 : 1;
       out.textContent = text.slice(0, pos);
       let delay = deleting ? 22 : 55;
       if (!deleting && pos === text.length) { deleting = true; delay = 1700; }
       else if (deleting && pos === 0) { deleting = false; line = (line + 1) % lines.length; delay = 350; }
-      setTimeout(tick, delay);
-    };
+      timer = setTimeout(tick, delay);
+    }
     tick();
   }
-
-  renderAbout() {
-    const box = this.$("about-text");
-    this.cfg.about.forEach(t => box.append(this.el("p", { text: t })));
-    this.cfg.facts.forEach(f => this.$("facts").append(this.el("li", {}, [
-      this.el("b", { text: f.title }), this.el("span", { text: f.text })
-    ])));
-  }
-
-  card(p, state) {
-    const pill = { featured: "pill star", wip: "pill live", planning: "pill plan" }[state];
-    const kids = [this.el("span", { class: pill, text: p.badge }), this.el("h3", { text: p.title })];
-    if (p.metric) kids.push(this.el("div", { class: "metric" }, [
-      this.el("strong", { text: p.metric.value }), this.el("span", { text: p.metric.label })]));
-    kids.push(this.el("p", { text: p.summary }));
-    if (p.details) kids.push(this.el("p", { text: p.details }));
-    if (p.flow && p.flow.length) kids.push(this.el("ol", { class: "flow", "aria-label": "Pipeline steps" }, p.flow.map(s => this.el("li", { text: s }))));
-    if (p.tags && p.tags.length) kids.push(this.el("div", { class: "tags" }, p.tags.map(t => this.tag(t))));
-    kids.push(p.url
-      ? this.el("a", { class: "card-link", href: p.url, target: "_blank", rel: "noopener", text: p.linkText })
-      : this.el("span", { class: "card-link soon", text: p.linkText }));
-    return this.el("article", { class: `card ${state}` }, kids);
-  }
-
-  renderProjects() {
-    this.$("projects-lead").textContent = this.cfg.projectsLead;
-    const root = this.$("project-groups");
-    this.cfg.projectGroups.forEach((g, i) => {
-      const head = this.el("div", { class: "subhead" }, [this.el("h3", { text: g.title }), g.note ? this.el("p", { text: g.note }) : null]);
-      const grid = this.el("div", { class: `grid ${g.columns === 2 ? "two" : ""}` }, g.items.map(p => this.card(p, g.state)));
-      if (i > 0) root.append(head); else head.style.marginTop = "0", root.append(head);
-      root.append(grid);
-    });
-  }
-
-  renderHighlights() {
-    const h = this.cfg.highlights;
-    this.$("hl-title").textContent = h.title;
-    this.$("hl-lead").textContent = h.lead;
-    h.items.forEach(i => this.$("highlight-grid").append(this.el("article", { class: "card highlight" }, [
-      this.el("div", { class: "icon", "aria-hidden": "true", text: i.icon }),
-      this.el("div", { class: "body" }, [
-        this.el("h3", { text: i.title }), this.el("p", { text: i.text }),
-        this.el("div", { class: "tags" }, i.tags.map(t => this.tag(t)))
-      ])
-    ])));
-  }
-
-  renderExperience() {
-    this.cfg.experience.forEach(e => this.$("timeline").append(this.el("li", {}, [
-      this.el("div", { class: "when", text: e.when }), this.el("h3", { text: e.role }),
-      this.el("div", { class: "where", text: e.company }), this.el("p", { text: e.text })
-    ])));
-  }
-
-  renderSkills() {
-    const track = this.$("marquee");
-    [0, 1].forEach(() => this.cfg.marquee.forEach(n => track.append(this.tag(n)))); // twice = seamless loop
-    this.cfg.skills.forEach(g => this.$("skills").append(this.el("div", { class: "skill-group" }, [
-      this.el("h3", { text: g.group }), this.el("div", {}, g.items.map(i => this.tag(i)))
-    ])));
-  }
-
-
-  renderContact() {
-    const { contact, links } = this.cfg, box = this.$("contact-links");
-    this.$("contact-title").textContent = contact.title;
-    this.$("contact-lead").textContent = contact.lead;
-    if (links.email) box.append(this.el("a", { class: "btn primary", href: `mailto:${links.email}`, text: "Send an email" }));
-    if (links.linkedin) box.append(this.el("a", { class: "btn", href: links.linkedin, target: "_blank", rel: "noopener", text: "LinkedIn" }));
-    if (links.github) box.append(this.el("a", { class: "btn", href: links.github, target: "_blank", rel: "noopener", text: "GitHub" }));
-    if (links.discord) box.append(this.el("a", { class: "btn", href: links.discord, target: "_blank", rel: "noopener", text: "Discord" }));
-  }
-
-  renderFooter() {
-    const { links, site } = this.cfg, foot = this.$("footer");
-    const inner = this.el("div", { class: "footer-inner" });
-    const copy = this.el("p", { class: "footer-copy", text: `\u00A9 ${new Date().getFullYear()} ${site.footer}` });
-    const nav = this.el("ul", { class: "footer-links" });
-    const add = (label, href, ext) => {
-      const a = this.el("a", { href, text: label });
-      if (ext) { a.target = "_blank"; a.rel = "noopener"; }
-      const li = document.createElement("li"); li.append(a); nav.append(li);
+  startTyping();
+  motion.addEventListener("change", startTyping);
+  // External shields.io badges degrade to text chips when unavailable.
+  for (const img of document.querySelectorAll("img.badge")) {
+    const fallback = () => {
+      const chip = document.createElement("span");
+      chip.className = "chip";
+      chip.textContent = img.alt;
+      img.replaceWith(chip);
     };
-    if (links.github) add("GitHub", links.github, true);
-    if (links.linkedin) add("LinkedIn", links.linkedin, true);
-    if (links.email) add("Email", `mailto:${links.email}`);
-    const top = this.el("a", { class: "to-top", href: "#cover", text: "Back to top \u2191" });
-    inner.append(copy, nav, top);
-    foot.append(inner);
+    img.addEventListener("error", fallback, { once: true });
+    if (img.complete && !img.naturalWidth) fallback();
   }
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
 
-  render() {
-    this.renderHero(); this.renderAbout(); this.renderProjects(); this.renderHighlights();
-    this.renderExperience(); this.renderSkills(); this.renderContact(); this.renderFooter();
-  }
-}
-
-new Page(CONFIG).render();
 </script>
 </body>
 </html>
