@@ -1,0 +1,152 @@
+{
+  "lead": "Hands-on data engineering projects covering distributed processing, cloud data platforms, batch and streaming architectures, orchestration, infrastructure automation, and operational reliability. The projects explore architectural trade-offs, performance, and cost.",
+  "groups": [
+    {
+      "state": "featured",
+      "title": "Completed Projects",
+      "note": "Two implementations of a common historical trade processing workload, exploring warehouse and lakehouse architectures.",
+      "columns": 1,
+      "items": [
+        {
+          "title": "Bitcoin Data Pipeline Benchmark — Snowflake",
+          "badge": "Featured",
+          "summary": "An end-to-end Snowflake data platform processing over one billion historical BTCUSDT trade records. One implementation of a cross-platform engineering benchmark comparing cloud data warehouse and lakehouse architectures.",
+          "details": "The platform implements historical Binance trade ingestion using Python, Parquet staging, dbt SQL transformations, and dependency-driven orchestration using Snowflake Tasks. Medallion Architecture separates raw ingestion, normalized trades and daily summaries, and curated analytical data products. Full-refresh and incremental execution paths support historical backfills, data quality validation, and retention management. Financial analytics include daily OHLC summaries in Silver and 50-day and 200-day simple moving averages, cumulative volume delta (CVD), and volume-weighted average price (VWAP) in Gold. The implementation explores incremental processing, orchestration dependencies, data consistency, and warehouse architecture trade-offs.",
+          "flow": [
+            "Binance Historical Trade Data",
+            "Python Acquisition & Parquet Conversion",
+            "Snowflake Internal Stage",
+            "Bronze: Raw Trades",
+            "Silver: Typed Trades & Daily Summaries",
+            "Gold: Financial Analytics"
+          ],
+          "tags": [
+            "Snowflake",
+            "Python",
+            "SQL",
+            "dbt",
+            "Parquet",
+            "Snowflake Tasks",
+            "Medallion Architecture",
+            "Batch Processing",
+            "Incremental Processing",
+            "Data Quality",
+            "Orchestration",
+            "Financial Analytics"
+          ],
+          "url": "https://github.com/saradfrz/bitcoin-pipeline-benchmark-snowflake",
+          "linkText": "View Repository"
+        },
+        {
+          "title": "Bitcoin Data Pipeline Benchmark — Databricks",
+          "badge": "Featured",
+          "summary": "An end-to-end lakehouse implementation processing over one billion historical BTCUSDT trade records using Apache Spark, Delta Lake, and Databricks. The distributed processing counterpart to the Snowflake implementation of the same benchmark.",
+          "details": "Python acquires historical Binance trade files and stores them in Unity Catalog Volumes. Auto Loader incrementally ingests source files into Delta Lake using Structured Streaming and checkpoints. Spark transformations implement Bronze, Silver, and Gold layers, with Databricks Workflows coordinating execution dependencies. The platform supports full-refresh and incremental processing, historical backfills, and data quality validation. Silver contains normalized trades and daily OHLC summaries; Gold provides 50-day and 200-day simple moving averages, cumulative volume delta (CVD), and volume-weighted average price (VWAP). The implementation explores distributed processing, incremental file ingestion, checkpoint-based recovery, and lakehouse architecture trade-offs.",
+          "flow": [
+            "Binance Historical Trade Data",
+            "Python Data Acquisition",
+            "Unity Catalog Volume",
+            "Auto Loader & Structured Streaming",
+            "Bronze: Raw Delta Tables",
+            "Silver: Typed Trades & Daily Summaries",
+            "Gold: Financial Analytics"
+          ],
+          "tags": [
+            "Databricks",
+            "Apache Spark",
+            "PySpark",
+            "Python",
+            "SQL",
+            "Delta Lake",
+            "Auto Loader",
+            "Unity Catalog",
+            "Databricks Workflows",
+            "Structured Streaming",
+            "Medallion Architecture",
+            "Distributed Processing",
+            "Incremental Processing",
+            "Data Quality",
+            "Orchestration",
+            "Financial Analytics"
+          ],
+          "url": "https://github.com/saradfrz/bitcoin-pipeline-benchmark-databricks",
+          "linkText": "View Repository"
+        }
+      ]
+    },
+    {
+      "state": "planning",
+      "title": "Planned Projects",
+      "note": "Proposed experiments in event-driven systems, infrastructure automation, container orchestration, and cost-efficient cloud deployments.",
+      "columns": 1,
+      "items": [
+        {
+          "title": "Real-Time Financial Data Pipeline — Kafka & Azure",
+          "badge": "Planning",
+          "summary": "A planned event-driven data platform for live cryptocurrency market events using Apache Kafka on Azure. Designed as a reproducible, time-bounded experiment measuring streaming performance and cloud infrastructure costs.",
+          "details": "The proposed architecture will consume public cryptocurrency trade events from the Coinbase WebSocket API through a Python producer and publish them to Apache Kafka on Azure infrastructure. A consumer will validate, normalize, and aggregate events into windowed price, volume, and volatility metrics, with raw events and analytical outputs persisted to Azure Blob Storage. Terraform will automate provisioning and teardown, and Docker will package application components. A controlled 10-minute streaming workload will evaluate throughput, end-to-end latency, consumer lag, resource utilization, and estimated versus actual cloud costs across the deployment lifecycle. Planned experiments include consumer recovery, duplicate handling, event-time processing, and delivery guarantees. The project will operate within the constraints of Azure for Students.",
+          "flow": [
+            "Coinbase WebSocket API",
+            "Python Kafka Producer",
+            "Apache Kafka Topics & Partitions",
+            "Streaming Consumer",
+            "Validation & Windowed Aggregations",
+            "Azure Blob Storage",
+            "Performance & Cost Evaluation"
+          ],
+          "tags": [
+            "Apache Kafka",
+            "Python",
+            "Azure",
+            "Azure Blob Storage",
+            "Terraform",
+            "Docker",
+            "WebSocket",
+            "Event-Driven Architecture",
+            "Stream Processing",
+            "Infrastructure as Code",
+            "Data Observability",
+            "Financial Analytics"
+          ],
+          "url": "",
+          "linkText": "Repository Coming Soon"
+        },
+        {
+          "title": "Containerized Batch Data Platform — Airflow, dbt & Kubernetes",
+          "badge": "Planning",
+          "summary": "A planned batch data platform for historical U.S. Treasury yield curve data using Apache Airflow, dbt, DuckDB, and Kubernetes on AWS. Designed to demonstrate reproducible batch execution, modular transformations, and resource-efficient infrastructure.",
+          "details": "The proposed platform will ingest public U.S. Treasury yield curve data with Python and preserve source CSV files in an Amazon S3 Bronze layer. Apache Airflow will orchestrate containerized ingestion, transformation, validation, and publication tasks through Kubernetes. dbt and DuckDB will implement SQL transformations and write normalized Silver datasets and curated Gold data products as Parquet files in S3. Analytical models will calculate yield spreads, maturity comparisons, rolling interest rate averages, and inversion indicators. A lightweight Kubernetes deployment on Amazon EC2 will support the experiment without requiring a managed Kubernetes control plane. Engineering objectives include deterministic execution, idempotency, dependency management, data quality, and reproducible deployments within AWS educational environment constraints. The architecture is deliberately designed to explore orchestration and container scheduling rather than minimize complexity for this small dataset.",
+          "flow": [
+            "U.S. Treasury Historical Yield Data",
+            "Containerized Python Ingestion",
+            "Amazon S3: Bronze",
+            "dbt & DuckDB Transformations",
+            "Amazon S3: Silver",
+            "Amazon S3: Gold",
+            "Data Quality & Operational Reporting"
+          ],
+          "tags": [
+            "AWS",
+            "Amazon S3",
+            "Amazon EC2",
+            "Kubernetes",
+            "Apache Airflow",
+            "dbt",
+            "DuckDB",
+            "Python",
+            "SQL",
+            "Docker",
+            "Parquet",
+            "Medallion Architecture",
+            "Batch Processing",
+            "Data Quality",
+            "Orchestration",
+            "Financial Analytics"
+          ],
+          "url": "",
+          "linkText": "Repository Coming Soon"
+        }
+      ]
+    }
+  ]
+}

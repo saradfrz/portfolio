@@ -1,0 +1,630 @@
+{
+  "site": {
+    "title": "Sara Fernandez | Senior Data Engineer | Technical Lead | Data Architecture",
+    "footer": "Sara Fernandez. All rights reserved."
+  },
+  "profile": {
+    "image": "https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/sara_profile.jpg",
+    "alt": "Portrait of Sara Fernandez",
+    "initials": "SF"
+  },
+  "cover": {
+    "image": "https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/nebulae.png",
+    "alt": "nebulae"
+  },
+  "name": "Sara Fernandez",
+  "role": "Senior Data Engineer | Technical Lead | Data Architecture",
+  "typing": [
+    "Architecting and building enterprise data platforms",
+    "Distributed Systems | Databricks | Spark | Python",
+    "Large-scale Data Processing | Batch & Streaming",
+    "Cloud Architecture | Platform Modernization",
+    "End-to-End Engineering | Technical Leadership"
+  ],
+  "tagline": "I architect, build, and scale enterprise data platforms, taking technical ownership from design and implementation to production deployment, performance optimization, and operational reliability.",
+  "about": [
+    "Senior Data Engineer and Technical Lead at AGCO, with 15 years of software engineering experience and five years specializing in data engineering. I developed the South America Data Lineage platform from the ground up and authored the initial technical assessment for migrating our legacy AWS data stack to Databricks on GCP.",
+    "I design and implement enterprise data platforms, distributed processing pipelines, and analytics solutions across cloud and on-premises environments. My expertise spans data architecture, integration, modeling, batch and incremental processing, governance, lineage, quality, and observability.",
+    "I take end-to-end technical ownership, from solution architecture and implementation through production deployment, performance optimization, and operational reliability. I focus on maintainable systems, reproducible execution, and clear operational ownership.",
+    "My background in enterprise software and financial systems gives me a strong understanding of business processes. I apply that experience to data engineering, building reliable solutions aligned with operational and business requirements.",
+    "I also mentor engineers, onboard technical talent, and contribute to engineering team development through documentation, technical training, and knowledge transfer."
+  ],
+  "facts": [
+    {
+      "title": "Data Architecture",
+      "text": "Enterprise data platforms, distributed systems, cloud architecture, data modeling, platform modernization and migration"
+    },
+    {
+      "title": "Data Engineering",
+      "text": "Databricks, Snowflake, Apache Spark, Delta Lake, Python, SQL, dbt, ETL/ELT, batch and incremental processing"
+    },
+    {
+      "title": "Reliability & Performance",
+      "text": "Performance optimization, data quality, observability, data lineage, governance and operational reliability"
+    },
+    {
+      "title": "Technical Leadership",
+      "text": "End-to-end technical ownership, solution design, engineering execution, cross-functional delivery and mentoring"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/saradfrz",
+    "linkedin": "https://www.linkedin.com/in/saradfrz/",
+    "email": "saradfrz@gmail.com",
+    "discord": "https://discordapp.com/users/702235784794734631"
+  },
+  "tech": {
+    "Databricks": {
+      "color": "FF3621",
+      "logo": "databricks"
+    },
+    "Snowflake": {
+      "color": "29B5E8",
+      "logo": "snowflake"
+    },
+    "Apache Spark": {
+      "color": "E25A1C",
+      "logo": "apachespark"
+    },
+    "Spark": {
+      "color": "E25A1C",
+      "logo": "apachespark"
+    },
+    "PySpark": {
+      "color": "E25A1C",
+      "logo": "apachespark"
+    },
+    "Delta Lake": {
+      "color": "00ADD8",
+      "logo": ""
+    },
+    "Unity Catalog": {
+      "color": "FF3621",
+      "logo": "databricks"
+    },
+    "Auto Loader": {
+      "color": "FF3621",
+      "logo": "databricks"
+    },
+    "Structured Streaming": {
+      "color": "E25A1C",
+      "logo": "apachespark"
+    },
+    "Databricks Workflows": {
+      "color": "FF3621",
+      "logo": "databricks"
+    },
+    "Snowflake Tasks": {
+      "color": "29B5E8",
+      "logo": "snowflake"
+    },
+    "dbt": {
+      "color": "FF694B",
+      "logo": "dbt"
+    },
+    "Python": {
+      "color": "3776AB",
+      "logo": "python"
+    },
+    "SQL": {
+      "color": "4479A1",
+      "logo": ""
+    },
+    "SQLAlchemy": {
+      "color": "D71F00",
+      "logo": ""
+    },
+    "Apache Airflow": {
+      "color": "017CEE",
+      "logo": "apacheairflow"
+    },
+    "Airflow": {
+      "color": "017CEE",
+      "logo": "apacheairflow"
+    },
+    "Apache Kafka": {
+      "color": "231F20",
+      "logo": "apachekafka"
+    },
+    "Kafka": {
+      "color": "231F20",
+      "logo": "apachekafka"
+    },
+    "Pentaho": {
+      "color": "005DAA",
+      "logo": ""
+    },
+    "Rundeck": {
+      "color": "F73F39",
+      "logo": "rundeck"
+    },
+    "Apache Parquet": {
+      "color": "50ABF1",
+      "logo": "apacheparquet"
+    },
+    "Parquet": {
+      "color": "50ABF1",
+      "logo": "apacheparquet"
+    },
+    "Apache Arrow": {
+      "color": "D2D2D2",
+      "logo": "apachearrow",
+      "logoColor": "black"
+    },
+    "Pandas": {
+      "color": "150458",
+      "logo": "pandas"
+    },
+    "DuckDB": {
+      "color": "FFF000",
+      "logo": "duckdb",
+      "logoColor": "black"
+    },
+    "PostgreSQL": {
+      "color": "4169E1",
+      "logo": "postgresql"
+    },
+    "MySQL": {
+      "color": "4479A1",
+      "logo": "mysql"
+    },
+    "Oracle": {
+      "color": "F80000",
+      "logo": ""
+    },
+    "Amazon Redshift": {
+      "color": "8C4FFF",
+      "logo": ""
+    },
+    "Redshift": {
+      "color": "8C4FFF",
+      "logo": ""
+    },
+    "Supabase": {
+      "color": "3FCF8E",
+      "logo": "supabase",
+      "logoColor": "black"
+    },
+    "AWS": {
+      "color": "FF9900",
+      "logo": "",
+      "logoColor": "black"
+    },
+    "Amazon S3": {
+      "color": "569A31",
+      "logo": ""
+    },
+    "Amazon EC2": {
+      "color": "FF9900",
+      "logo": ""
+    },
+    "GCP": {
+      "color": "4285F4",
+      "logo": "googlecloud"
+    },
+    "Azure": {
+      "color": "0078D4",
+      "logo": ""
+    },
+    "Azure Blob Storage": {
+      "color": "0078D4",
+      "logo": ""
+    },
+    "Azure DevOps": {
+      "color": "0078D7",
+      "logo": ""
+    },
+    "Docker": {
+      "color": "2496ED",
+      "logo": "docker"
+    },
+    "Docker Compose": {
+      "color": "2496ED",
+      "logo": "docker"
+    },
+    "Kubernetes": {
+      "color": "326CE5",
+      "logo": "kubernetes"
+    },
+    "Terraform": {
+      "color": "844FBA",
+      "logo": "terraform"
+    },
+    "GitHub Actions": {
+      "color": "2088FF",
+      "logo": "githubactions"
+    },
+    "GitHub": {
+      "color": "181717",
+      "logo": "github"
+    },
+    "Git": {
+      "color": "F05032",
+      "logo": "git"
+    },
+    "Linux": {
+      "color": "FCC624",
+      "logo": "linux",
+      "logoColor": "black"
+    },
+    "Bash": {
+      "color": "4EAA25",
+      "logo": "gnubash"
+    },
+    "PowerShell": {
+      "color": "5391FE",
+      "logo": ""
+    },
+    "Jupyter": {
+      "color": "F37626",
+      "logo": "jupyter"
+    },
+    "DBeaver": {
+      "color": "382923",
+      "logo": "dbeaver"
+    },
+    "REST API": {
+      "color": "475569",
+      "logo": ""
+    },
+    "WebSocket": {
+      "color": "475569",
+      "logo": ""
+    },
+    "JSON": {
+      "color": "292929",
+      "logo": "json"
+    },
+    "YAML": {
+      "color": "CB171E",
+      "logo": "yaml"
+    },
+    "Tableau": {
+      "color": "E97627",
+      "logo": ""
+    },
+    "Power BI": {
+      "color": "F2C811",
+      "logo": "",
+      "logoColor": "black"
+    },
+    "Superset": {
+      "color": "20A6C9",
+      "logo": "apachesuperset"
+    },
+    "Streamlit": {
+      "color": "FF4B4B",
+      "logo": "streamlit"
+    },
+    "Looker": {
+      "color": "4285F4",
+      "logo": "looker"
+    },
+    "Medallion Architecture": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Distributed Processing": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Batch Processing": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Stream Processing": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Incremental Processing": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Event-Driven Architecture": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Quality": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Lineage": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Governance": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Observability": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Orchestration": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Infrastructure as Code": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Financial Analytics": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Architecture": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Platform": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Platform Modernization": {
+      "color": "475569",
+      "logo": ""
+    },
+    "ETL/ELT": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Modularity": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Modeling": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Distributed Systems": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Products": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Migration Strategy": {
+      "color": "475569",
+      "logo": ""
+    },
+    "CI/CD": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Data Cataloging": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Performance Optimization": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Operational Reliability": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Solution Architecture": {
+      "color": "475569",
+      "logo": ""
+    },
+    "End-to-End Technical Ownership": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Cross-Functional Delivery": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Technical Documentation": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Mentoring": {
+      "color": "475569",
+      "logo": ""
+    },
+    "Knowledge Transfer": {
+      "color": "475569",
+      "logo": ""
+    }
+  },
+  "marquee": [
+    "Databricks",
+    "Snowflake",
+    "Apache Spark",
+    "Delta Lake",
+    "Python",
+    "SQL",
+    "dbt",
+    "Unity Catalog",
+    "Structured Streaming",
+    "Apache Airflow",
+    "AWS",
+    "GCP",
+    "Azure",
+    "Amazon Redshift",
+    "PostgreSQL",
+    "Apache Parquet",
+    "Docker",
+    "Azure DevOps",
+    "GitHub Actions",
+    "Git",
+    "Linux"
+  ],
+  "highlights": {
+    "title": "Selected engineering achievements",
+    "lead": "Enterprise data platforms and engineering initiatives I have designed, implemented or led.",
+    "items": [
+      {
+        "icon": "🔗",
+        "title": "South America Data Lineage Platform",
+        "text": "Designed, implemented, documented and deployed an end-to-end data lineage platform for South America, connecting metadata across ETL pipelines, Amazon Redshift tables, Tableau assets and business data products to improve operational traceability.",
+        "tags": [
+          "Data Architecture",
+          "Data Lineage",
+          "Amazon Redshift",
+          "Tableau",
+          "Data Governance"
+        ]
+      },
+      {
+        "icon": "☁️",
+        "title": "AWS to Databricks Migration Assessment",
+        "text": "Authored the initial technical assessment for migrating the legacy AWS data stack to Databricks on GCP, evaluating existing platform assets, migration readiness, and architectural considerations for scalability, governance and maintainability.",
+        "tags": [
+          "AWS",
+          "Databricks",
+          "GCP",
+          "Data Architecture",
+          "Platform Modernization"
+        ]
+      },
+      {
+        "icon": "🌐",
+        "title": "Enterprise Data Portal",
+        "text": "Led development of a self-service data platform for governed data access and visibility across business units, integrating Apache Airflow, GCP, Azure, Superset and Power BI.",
+        "tags": [
+          "Data Platform",
+          "Apache Airflow",
+          "GCP",
+          "Azure",
+          "Data Governance"
+        ]
+      },
+      {
+        "icon": "♻️",
+        "title": "Modular extraction platform modernization",
+        "text": "Re-architected a legacy monolithic extraction platform into parameterized, reusable Python components with structured logging, improving maintainability, traceability and operational support.",
+        "tags": [
+          "ETL/ELT",
+          "Python",
+          "SQL",
+          "Modularity",
+          "Data Observability"
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "when": "Mar 2026 to now",
+      "role": "Senior Data Engineer",
+      "company": "AGCO Corporation",
+      "text": "Designed, implemented, documented and deployed the South America Data Lineage platform. Authored the initial technical assessment for migrating the legacy AWS data stack to Databricks on GCP. Develop architecture and modernization strategies for the South America Data Platform, collaborating with global stakeholders to assess migration readiness, inventory platform assets, and establish data product, lineage, cataloging and quality standards."
+    },
+    {
+      "when": "May 2025 to Mar 2026",
+      "role": "Data Engineer (contractor)",
+      "company": "A-Players, for AGCO",
+      "text": "Translated business requirements across finance, marketing, manufacturing and logistics into ETL specifications and data pipelines. Worked across legacy and modern platforms including Pentaho, Redshift, Rundeck, AWS S3, Databricks, Python, SQL and PySpark, contributing to modularity, observability and governance."
+    },
+    {
+      "when": "May 2024 to Feb 2025",
+      "role": "Data Engineer",
+      "company": "Orbia",
+      "text": "Led development of a self-service data platform for governed access and visibility, integrating Airflow, GCP, Azure, Superset and Power BI. Worked across data delivery, cloud infrastructure and CI/CD to support reliable analytics consumption."
+    },
+    {
+      "when": "Jul 2021 to Apr 2024",
+      "role": "Data Engineer",
+      "company": "Distrito",
+      "text": "Modernized a legacy ETL architecture into a modular Python-based pipeline with parameterized components, reusable classes and structured logging, improving maintainability, traceability and operational support while exposing curated datasets through REST APIs."
+    },
+    {
+      "when": "Jan to Jul 2019",
+      "role": "Intern",
+      "company": "John Deere",
+      "text": "Worked across the ISA-95 stack, connecting industrial systems and data flows from PLC and SCADA environments through MES and analytics. This foundation shaped my systems-oriented approach to data architecture and industrial data platforms."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Data Platforms & Distributed Processing",
+      "items": [
+        "Databricks",
+        "Snowflake",
+        "Apache Spark",
+        "PySpark",
+        "Delta Lake",
+        "Amazon Redshift",
+        "Structured Streaming"
+      ]
+    },
+    {
+      "group": "Data Integration & Orchestration",
+      "items": [
+        "Python",
+        "SQL",
+        "dbt",
+        "ETL/ELT",
+        "Apache Airflow",
+        "Databricks Workflows",
+        "Snowflake Tasks",
+        "Auto Loader",
+        "Pentaho",
+        "Rundeck",
+        "Incremental Processing"
+      ]
+    },
+    {
+      "group": "Data Architecture & Storage",
+      "items": [
+        "Data Architecture",
+        "Data Modeling",
+        "Distributed Systems",
+        "Medallion Architecture",
+        "Data Products",
+        "Platform Modernization",
+        "Migration Strategy",
+        "Apache Parquet",
+        "PostgreSQL",
+        "MySQL",
+        "Oracle"
+      ]
+    },
+    {
+      "group": "Cloud & Engineering Operations",
+      "items": [
+        "AWS",
+        "GCP",
+        "Azure",
+        "Amazon S3",
+        "Docker",
+        "CI/CD",
+        "Azure DevOps",
+        "GitHub Actions",
+        "Git",
+        "Linux"
+      ]
+    },
+    {
+      "group": "Governance & Operational Reliability",
+      "items": [
+        "Unity Catalog",
+        "Data Lineage",
+        "Data Governance",
+        "Data Quality",
+        "Data Observability",
+        "Data Cataloging",
+        "Performance Optimization",
+        "Operational Reliability"
+      ]
+    },
+    {
+      "group": "Technical Leadership & Delivery",
+      "items": [
+        "Solution Architecture",
+        "End-to-End Technical Ownership",
+        "Cross-Functional Delivery",
+        "Technical Documentation",
+        "Mentoring",
+        "Knowledge Transfer"
+      ]
+    }
+  ],
+  "contact": {
+    "title": "Let's talk",
+    "lead": "Open to opportunities in senior and lead data engineering, data architecture, distributed processing, enterprise data platforms, and cloud modernization."
+  }
+}

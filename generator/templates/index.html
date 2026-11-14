@@ -1,0 +1,129 @@
+{%- macro tech_tag(name) -%}
+{% if name in cfg.tech %}<img class="badge" src="{{ badge_url(name, cfg.tech[name]) }}" alt="{{ name }}" loading="lazy" height="22">{% else %}<span class="chip">{{ name }}</span>{% endif %}
+{%- endmacro -%}
+{%- macro tags(items) -%}
+<div class="tags">{% for item in items %}{{ tech_tag(item) }}{% endfor %}</div>
+{%- endmacro -%}
+{%- macro external_link(url, label, cls='btn') -%}
+{% if url %}<a class="{{ cls }}" href="{{ url }}" target="_blank" rel="noopener">{{ label }}</a>{% endif %}
+{%- endmacro -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ cfg.site.title }}</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050407'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23ffffff'%3ESF%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Senior Data Engineer building data platforms, lineage and agentic AI systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+{{ css | safe }}
+</style>
+</head>
+<body>
+<div class="nebula" aria-hidden="true"></div>
+<header>
+  <div class="cover" id="cover">{% if cfg.cover.image %}<img src="{{ cfg.cover.image }}" alt="{{ cfg.cover.alt }}">{% endif %}</div>
+  <div class="wrap identity">
+    <div class="avatar" id="avatar">
+      {% if cfg.profile.image %}<img src="{{ cfg.profile.image }}" alt="{{ cfg.profile.alt }}">{% else %}<div class="monogram" role="img" aria-label="{{ cfg.profile.alt }}">{{ cfg.profile.initials }}</div>{% endif %}
+    </div>
+    <div>
+      <h1 id="name">{{ cfg.name }}</h1>
+      <p class="role" id="role">{{ cfg.role }}</p>
+      <p class="typing" id="typing" aria-live="off"><span id="typed">{{ cfg.typing[0] if cfg.typing else '' }}</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="tagline" id="tagline">{{ cfg.tagline }}</p>
+      <div class="actions" id="actions">
+        <a class="btn primary" href="#projects">See my projects</a>
+        {{ external_link(cfg.links.linkedin, 'LinkedIn') }}
+        {{ external_link(cfg.links.github, 'GitHub') }}
+      </div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About</h2>
+    <div class="about">
+      <div id="about-text">{% for paragraph in cfg.about %}<p>{{ paragraph }}</p>{% endfor %}</div>
+      <ul class="facts" id="facts">{% for fact in cfg.facts %}<li><b>{{ fact.title }}</b><span>{{ fact.text }}</span></li>{% endfor %}</ul>
+    </div>
+  </section>
+  <section id="highlights" aria-labelledby="hl-title">
+    <h2 id="hl-title">{{ cfg.highlights.title }}</h2>
+    <p class="lead" id="hl-lead">{{ cfg.highlights.lead }}</p>
+    <div class="grid two" id="highlight-grid">
+      {% for item in cfg.highlights['items'] %}
+      <article class="card highlight">
+        <div class="icon" aria-hidden="true">{{ item.icon }}</div>
+        <div class="body"><h3>{{ item.title }}</h3><p>{{ item.text }}</p>{{ tags(item.tags) }}</div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  <section id="experience" aria-labelledby="exp-title">
+    <h2 id="exp-title">Experience</h2>
+    <ol class="timeline" id="timeline">
+      {% for item in cfg.experience %}<li><div class="when">{{ item.when }}</div><h3>{{ item.role }}</h3><div class="where">{{ item.company }}</div><p>{{ item.text }}</p></li>{% endfor %}
+    </ol>
+  </section>
+  <section id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Projects</h2>
+    <p class="lead" id="projects-lead">{{ projects.lead }}</p>
+    <div id="project-groups">
+      {% for group in projects.groups %}
+      <div class="subhead"><h3>{{ group.title }}</h3>{% if group.note %}<p>{{ group.note }}</p>{% endif %}</div>
+      <div class="grid{% if group.columns == 2 %} two{% endif %}">
+        {% for project in group['items'] %}
+        <article class="card {{ group.state }}">
+          <span class="pill {{ {'featured':'star','wip':'live','planning':'plan'}[group.state] }}">{{ project.badge }}</span>
+          <h3>{{ project.title }}</h3>
+          {% if project.metric is defined and project.metric %}<div class="metric"><strong>{{ project.metric.value }}</strong><span>{{ project.metric.label }}</span></div>{% endif %}
+          <p>{{ project.summary }}</p>
+          {% if project.details is defined and project.details %}<p>{{ project.details }}</p>{% endif %}
+          {% if project.flow is defined and project.flow %}<ol class="flow" aria-label="Pipeline steps">{% for step in project.flow %}<li>{{ step }}</li>{% endfor %}</ol>{% endif %}
+          {% if project.tags is defined and project.tags %}{{ tags(project.tags) }}{% endif %}
+          {% if project.url %}{{ external_link(project.url, project.linkText, 'card-link') }}{% else %}<span class="card-link soon">{{ project.linkText }}</span>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <section id="skills" aria-labelledby="skills-title">
+    <h2 id="skills-title">Toolbox</h2>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee">{% for name in cfg.marquee * 2 %}{{ tech_tag(name) }}{% endfor %}</div></div>
+    <div class="skills" id="skills-grid">
+      {% for group in cfg.skills %}<div class="skill-group"><h3>{{ group.group }}</h3><div>{% for item in group['items'] %}{{ tech_tag(item) }}{% endfor %}</div></div>{% endfor %}
+    </div>
+  </section>
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">{{ cfg.contact.title }}</h2>
+    <p class="lead" id="contact-lead">{{ cfg.contact.lead }}</p>
+    <div class="links" id="contact-links">
+      {% if cfg.links.email %}<a class="btn primary" href="mailto:{{ cfg.links.email }}">Send an email</a>{% endif %}
+      {{ external_link(cfg.links.linkedin, 'LinkedIn') }}
+      {{ external_link(cfg.links.github, 'GitHub') }}
+      {{ external_link(cfg.links.discord, 'Discord') }}
+    </div>
+  </section>
+</main>
+<footer class="wrap" id="footer">
+  <div class="footer-inner">
+    <p class="footer-copy">© <span id="year">{{ year }}</span> {{ cfg.site.footer }}</p>
+    <ul class="footer-links">
+      {% if cfg.links.github %}<li>{{ external_link(cfg.links.github, 'GitHub', '') }}</li>{% endif %}
+      {% if cfg.links.linkedin %}<li>{{ external_link(cfg.links.linkedin, 'LinkedIn', '') }}</li>{% endif %}
+      {% if cfg.links.email %}<li><a href="mailto:{{ cfg.links.email }}">Email</a></li>{% endif %}
+    </ul>
+    <a class="to-top" href="#cover">Back to top ↑</a>
+  </div>
+</footer>
+<script type="application/json" id="typing-data">{{ cfg.typing | tojson }}</script>
+<script>
+{{ javascript | safe }}
+</script>
+</body>
+</html>
