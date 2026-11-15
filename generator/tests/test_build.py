@@ -36,7 +36,7 @@ class BuildTests(unittest.TestCase):
     def test_build(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            for folder in ('data', 'templates', 'assets', 'posts'):
+            for folder in ('data', 'templates', 'assets'):
                 shutil.copytree(ROOT / folder, root / folder)
             output = build(root)
             html = output.read_text(encoding='utf-8')
@@ -54,8 +54,27 @@ class BuildTests(unittest.TestCase):
                     self.assertIn(project['title'], unescape(html))
             self.assertNotIn('id="facts"', html)
             self.assertIn('href="posts/data-pipeline-engineering/index.html"', html)
-            self.assertTrue((output.parent / 'posts/data-pipeline-engineering/assets/cover.png').is_file())
+            self.assertFalse((output.parent / 'posts').exists())
             self.assertNotIn('RepoSensei', html)
+
+    def test_custom_link_and_output_filename(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for folder in ('data', 'templates', 'assets'):
+                shutil.copytree(ROOT / folder, root / folder)
+            config_path = root / 'data/site.json'
+            config = json.loads(config_path.read_text())
+            config['site']['output_file'] = 'portfolio.html'
+            config_path.write_text(json.dumps(config))
+            posts_path = root / 'data/posts.json'
+            posts = json.loads(posts_path.read_text())
+            posts['items'][0]['url'] = 'https://example.com/blog/my-custom-article.html'
+            posts_path.write_text(json.dumps(posts))
+            output = build(root)
+            self.assertEqual(output.name, 'portfolio.html')
+            self.assertIn('href="https://example.com/blog/my-custom-article.html"',
+                          output.read_text())
+            self.assertFalse((output.parent / 'posts').exists())
 
     def test_project_count_validation(self):
         projects = json.loads((ROOT / 'data/projects.json').read_text(encoding='utf-8'))

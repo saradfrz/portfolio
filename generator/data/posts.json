@@ -6,8 +6,8 @@
       "title": "From Business Requirements to Production: Engineering a Data Pipeline",
       "date": "2026-11-15",
       "summary": "From business discovery and source modeling to incremental processing, deployment and production operations.",
-      "path": "data-pipeline-engineering/index.html",
-      "draft": false
+      "draft": false,
+      "url": "posts/data-pipeline-engineering/index.html"
     }
   ]
 }

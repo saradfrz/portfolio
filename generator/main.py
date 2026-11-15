@@ -1,9 +1,8 @@
 """Build the portfolio into one HTML file; no web server or Node required."""
 from datetime import date
 import json
-import shutil
 from pathlib import Path
-from urllib.parse import quote, urlencode
+from urllib.parse import quote, urlencode, urlsplit
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 
@@ -23,7 +22,7 @@ def badge_url(name: str, tech: dict) -> str:
 
 
 def validate_projects(projects: dict) -> None:
-    """Keep exactly three visible projects and validate card configuration."""
+    """Keep exactly four visible projects and validate card configuration."""
     groups = projects["groups"]
     if sum(len(group["items"]) for group in groups) != 4:
         raise ValueError("projects.json must contain exactly four projects in total.")
@@ -40,8 +39,8 @@ def validate_projects(projects: dict) -> None:
 
 
 def load_posts(root: Path) -> dict:
-    """Load published cards, newest first, and verify local article links."""
-    config = load_json(root / "posts/posts.json")
+    """Load portfolio link metadata only; articles are managed separately."""
+    config = load_json(root / "data/posts.json")
     limit = config.get("limit", 3)
     if type(limit) is not int or limit < 1:
         raise ValueError("posts.json limit must be a positive integer.")
@@ -49,18 +48,19 @@ def load_posts(root: Path) -> dict:
     for post in config["items"]:
         if post.get("draft", False):
             continue
-        for field in ("title", "summary", "date", "path"):
+        for field in ("title", "summary", "date", "url"):
             if not isinstance(post.get(field), str) or not post[field].strip():
                 raise ValueError(f"Post requires a nonempty {field}.")
         published_date = date.fromisoformat(post["date"])
-        relative = Path(post["path"])
-        target = (root / "posts" / relative).resolve()
-        if relative.is_absolute() or not target.is_relative_to((root / "posts").resolve()):
-            raise ValueError("Post path must stay inside posts/.")
-        if not target.is_file() or target.suffix.lower() != ".html":
-            raise ValueError(f"Post HTML file does not exist: {post['path']}")
-        published.append(dict(post, url="posts/" + quote(relative.as_posix(), safe="/"),
-                              date_label=published_date.strftime("%b %d, %Y")))
+        url = post["url"]
+        if any(c.isspace() for c in url) or "\\" in url:
+            raise ValueError("Post URL must not contain whitespace or backslashes.")
+        parts = urlsplit(url)
+        if parts.scheme and parts.scheme.lower() not in {"http", "https"}:
+            raise ValueError("Post URL must be HTTP(S) or a relative path.")
+        if parts.scheme and not parts.netloc:
+            raise ValueError("Absolute post URL requires a hostname.")
+        published.append(dict(post, date_label=published_date.strftime("%b %d, %Y")))
     config["items"] = sorted(published, key=lambda p: p["date"], reverse=True)[:limit]
     return config
 
@@ -89,14 +89,13 @@ def build(root: Path = ROOT) -> Path:
         cfg=cfg, projects=projects, posts=posts, css=css, javascript=javascript,
         year=date.today().year,
     )
-    output = root / "output/index.html"
+    output_name = cfg["site"].get("output_file", "index.html")
+    if (not isinstance(output_name, str) or "/" in output_name or "\\" in output_name
+            or not output_name.lower().endswith(".html")):
+        raise ValueError("site.output_file must be an HTML filename, e.g. portfolio.html.")
+    output = root / "output" / output_name
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(html, encoding="utf-8")
-    # output/ is generated: mirror posts to remove deleted or renamed articles.
-    destination = output.parent / "posts"
-    if destination.exists():
-        shutil.rmtree(destination)
-    shutil.copytree(root / "posts", destination)
     return output
 
 

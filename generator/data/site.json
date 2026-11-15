@@ -1,7 +1,8 @@
 {
   "site": {
     "title": "Sara Fernandez | Senior Data Engineer | Technical Lead | Data Architecture",
-    "footer": "Sara Fernandez. All rights reserved."
+    "footer": "Sara Fernandez. All rights reserved.",
+    "output_file": "index.html"
   },
   "profile": {
     "image": "https://lmwxqzustlrpfmbhvjbx.supabase.co/storage/v1/object/public/portfolio/img/sara_profile.jpg",
