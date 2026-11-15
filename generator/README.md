@@ -1,82 +1,86 @@
-# Portfolio static site generator
+# Portfolio generator with latest posts
 
-A small Python/Jinja2 project that generates a single `index.html` from the portfolio's HTML template, CSS, JavaScript and JSON content. The generated document contains the complete markup, inline stylesheet and inline script. It can be opened locally or deployed to GitHub Pages without a Python backend.
+The About section now displays article cards in place of the facts list.
+The existing portfolio content and project cards are preserved.
 
-## Structure
+## Build (Windows PowerShell)
 
-```text
-portfolio/
-├── main.py                  # Static build entry point
-├── requirements.txt         # Jinja2 dependency
-├── README.md
-├── data/
-│   ├── site.json            # Identity, experience, highlights, skills, links
-│   └── projects.json        # Exactly three portfolio projects
-├── templates/
-│   └── index.html           # Jinja2 HTML template
-├── assets/
-│   ├── style.css            # Original portfolio design and animations
-│   └── script.js            # Typing animation and badge fallbacks
-├── tests/
-│   └── test_build.py
-└── index.html               # Generated; do not edit manually
-```
-
-## Local setup (Windows PowerShell)
-
-Run from the extracted `portfolio` directory with Python 3.10 or later:
+Run inside the extracted `generator` folder:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python main.py
-Start-Process index.html
+Start-Process output/index.html
 ```
 
-On macOS/Linux:
+On Linux/macOS, activate using `source .venv/bin/activate`.
+Python 3.10+ is required.
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python main.py
+## Add an article
+
+1. Create `posts/my-post/`.
+2. Put the article's HTML in `posts/my-post/index.html` and its images or other
+   resources inside that folder (for example `assets/cover.png`).
+3. Add an item to `posts/posts.json`:
+
+```json
+{
+  "title": "My new article",
+  "date": "2026-11-16",
+  "summary": "A short description for the card.",
+  "path": "my-post/index.html",
+  "draft": false
+}
 ```
 
-Open the generated `index.html` in a browser. No local server is necessary. For an HTTP preview, optionally run `python -m http.server 8000` and visit `http://localhost:8000`.
+4. Run `python main.py` again.
 
-## Edit the content
+The JSON file's `title` sets the section heading; `limit` controls the
+maximum visible cards (default 3). Cards are ordered newest first.
+Use ISO dates (`YYYY-MM-DD`); the included article uses November 15, 2026.
+Edit that date if its actual publication date differs.
 
-- `data/site.json`: edit identity, cover/profile image URLs, links, experience, skills and work highlights.
-- `data/projects.json`: edit the project cards and status groups. The generator validates that the total number of cards is exactly three. The initial three are Key To Cart, Data Forge and TickStream Lakehouse, copied from the original page. RepoSensei was excluded to satisfy the three-project limit.
-- `templates/index.html`: edit section structure or reusable Jinja2 macros.
-- `assets/style.css`: adjust design tokens, responsive layout and styling.
-- `assets/script.js`: adjust the hero typing animation, year display or badge fallback.
+`draft: true` hides a card, but files are still copied into the public output.
+Keep private drafts outside `posts/`. Future dates do not schedule publishing.
+Paths are relative to `posts/`. Published entries must point to existing HTML.
+The generator does not convert Markdown or write article content.
 
-Project groups use `featured`, `wip` or `planning` as their `state`. `columns` can be `1` or `2`. Each project has `title`, `badge`, `summary`, `url` and `linkText`; optional fields include `details`, `flow`, `tags` and `metric` (an object with `value` and `label`). An empty URL shows an inactive link label. To move a project to a different status, move its JSON object to the appropriate group's `items` array. The `badge` text is editable independently.
-
-After editing any source file, run:
-
-```bash
-python main.py
-```
-
-Python reads the JSON, validates the project count, renders the complete page with Jinja2 and embeds the stylesheet and JavaScript into the output. The page content is visible without JavaScript; JS adds the typing animation, dynamic year and fallback chips for failed badge images. Reduced-motion preferences are respected.
+Included: your existing Data Pipeline Engineering article and its cover from
+the data-pipeline-blog package. Replace those files with a newer article export
+whenever you revise the article.
 
 ## Deploy to GitHub Pages
 
-1. Commit the project, including the generated root `index.html`, to your repository.
-2. In GitHub repository settings, enable Pages and choose **Deploy from a branch**, then your publishing branch and `/ (root)`.
-3. After each source change, regenerate `index.html` and commit/push the updated output.
+The ZIP's root `index.html` and root `posts/` are ready to copy to the
+publishing root of your portfolio repository, beside each other.
 
-Only the generated `index.html` needs to be published. It does not fetch the JSON, CSS or JS at runtime.
+For subsequent builds, copy **the contents of `generator/output/`** into that
+same publishing root. Commit and push both `index.html` and `posts/`.
+Each post then lives at `https://<user>.github.io/<repo>/posts/<slug>/`.
+Relative links support a GitHub Pages repository subdirectory.
 
-**External assets:** like the original portfolio, the generated page references Google Fonts, Supabase-hosted profile/cover images, and Shields.io badges. These require internet access for their full appearance. No separate local asset files are needed. This is a single-file deployment, not a fully offline snapshot. External links are also preserved.
+Do not publish only index.html: article pages and their assets are separate files.
+Do not manually edit output/: the next build replaces its generated posts folder.
+Regenerate after changing metadata or adding articles; there is no runtime JSON fetch.
+The Python environment is local only and is not included in the ZIP.
 
-## Tests
+## Other source files
 
-```bash
+- `data/site.json`: profile, About, experience, highlights, skills and links.
+  The old `facts` data is retained but no longer rendered.
+- `data/projects.json`: four portfolio projects.
+- `templates/index.html`: portfolio markup and post card structure.
+- `assets/style.css`: portfolio and post card styling.
+- `assets/script.js`: existing animations.
+- `posts/`: article metadata, pages and their assets.
+- `output/`: generated site ready for deployment.
+
+The portfolio still uses its existing external fonts, badges and profile images.
+
+## Checks
+
+```powershell
 python -m unittest discover -s tests -v
 ```
-
-The tests verify the three-card limit, unique HTML IDs, inline CSS and JavaScript, and static project rendering.

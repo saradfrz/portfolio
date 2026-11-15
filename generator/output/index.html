@@ -138,10 +138,6 @@
 
   .about { display: grid; gap: 40px; grid-template-columns: 1.6fr 1fr; align-items: start; }
   .about p { margin: 0 0 16px; max-width: 64ch; }
-  .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  .facts li { padding: 14px 18px; border: 1px solid var(--line); border-left: 2px solid var(--magenta); border-radius: 12px; background: var(--glass); }
-  .facts b { display: block; color: var(--white); font-weight: 600; }
-  .facts span { color: var(--text-dim); font-size: .92rem; }
 
   /* ---------- Cards ---------- */
   .grid { display: grid; gap: 20px; }
@@ -155,14 +151,33 @@
   .card p { margin: 0; color: var(--text-dim); }
 
   /* featured = finished */
-  .card.featured { border-radius: 26px; padding: 34px; }
-  .card.featured::before {
-    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
-    background: linear-gradient(140deg, rgba(255,43,214,.75), rgba(255,255,255,.08) 45%, rgba(255,43,214,.35));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-  }
-  .card.featured:hover { box-shadow: 0 0 60px rgba(255, 43, 214, .12); }
+.chapter-card.featured {
+    border-radius: 26px;
+    padding: 34px;
+}
+
+.chapter-card.featured::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+        140deg,
+        rgba(157, 157, 157, 0.75),
+        rgba(255,255,255,.08) 45%,
+        rgba(77, 77, 77, 0.35)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+                  linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.chapter-card.featured:hover {
+    box-shadow: 0 0 60px rgba(255,43,214,.12);
+}
   /* wip = dashed, magenta */
   .card.wip { border-radius: 20px; border: 1px dashed rgba(255, 43, 214, .55); }
   .card.wip:hover { border-color: var(--magenta); }
@@ -244,6 +259,22 @@
 #project-groups > .subhead:first-child { margin-top: 0; }
 #footer { margin-top: 40px; }
 
+/* Latest articles beside About; stacks below About on mobile. */
+.latest-posts { min-width: 0; }
+.latest-posts > h3 { font-size: 1rem; margin-bottom: 14px; }
+.post-list { display: grid; gap: 14px; }
+.post-card { display: grid; gap: 10px; padding: 20px; border: 1px solid var(--line);
+  border-radius: 14px; background: var(--glass); color: var(--text); text-decoration: none;
+  overflow-wrap: anywhere; transition: border-color .2s, background .2s; }
+.post-card:hover, .post-card:focus-visible { border-color: var(--magenta);
+  background: rgba(255,255,255,.05); text-decoration: none; }
+.post-card time { font-family: var(--font-mono); font-size: .75rem; color: var(--text-dim); }
+.post-card h4 { font-family: var(--font-display); font-size: 1.08rem;
+  line-height: 1.45; margin: 0; color: var(--white); }
+.about .post-card p { font-size: .9rem; color: var(--text-dim); margin: 0; }
+.post-cta { font-size: .85rem; font-weight: 600; color: var(--white); }
+.post-cta span { color: var(--magenta); margin-left: 5px; }
+
 </style>
 </head>
 <body>
@@ -271,7 +302,17 @@
     <h2 id="about-title">About</h2>
     <div class="about">
       <div id="about-text"><p>Senior Data Engineer and Technical Lead at AGCO, with 15 years of software engineering experience and five years specializing in data engineering. I developed the South America Data Lineage platform from the ground up and authored the initial technical assessment for migrating our legacy AWS data stack to Databricks on GCP.</p><p>I design and implement enterprise data platforms, distributed processing pipelines, and analytics solutions across cloud and on-premises environments. My expertise spans data architecture, integration, modeling, batch and incremental processing, governance, lineage, quality, and observability.</p><p>I take end-to-end technical ownership, from solution architecture and implementation through production deployment, performance optimization, and operational reliability. I focus on maintainable systems, reproducible execution, and clear operational ownership.</p><p>My background in enterprise software and financial systems gives me a strong understanding of business processes. I apply that experience to data engineering, building reliable solutions aligned with operational and business requirements.</p><p>I also mentor engineers, onboard technical talent, and contribute to engineering team development through documentation, technical training, and knowledge transfer.</p></div>
-      <ul class="facts" id="facts"><li><b>Data Architecture</b><span>Enterprise data platforms, distributed systems, cloud architecture, data modeling, platform modernization and migration</span></li><li><b>Data Engineering</b><span>Databricks, Snowflake, Apache Spark, Delta Lake, Python, SQL, dbt, ETL/ELT, batch and incremental processing</span></li><li><b>Reliability &amp; Performance</b><span>Performance optimization, data quality, observability, data lineage, governance and operational reliability</span></li><li><b>Technical Leadership</b><span>End-to-end technical ownership, solution design, engineering execution, cross-functional delivery and mentoring</span></li></ul>
+      <aside class="latest-posts" id="posts" aria-labelledby="posts-title">
+        <h3 id="posts-title">Latest posts</h3>
+        <div class="post-list">
+          <a class="post-card" href="posts/data-pipeline-engineering/index.html">
+            <time datetime="2026-11-15">Nov 15, 2026</time>
+            <h4>From Business Requirements to Production: Engineering a Data Pipeline</h4>
+            <p>From business discovery and source modeling to incremental processing, deployment and production operations.</p>
+            <span class="post-cta">Read article <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </aside>
     </div>
   </section>
   <section id="highlights" aria-labelledby="hl-title">
@@ -311,7 +352,7 @@
           <span class="pill star">Featured</span>
           <h3>Bitcoin Data Pipeline Benchmark — Snowflake</h3>
           <p>An end-to-end Snowflake data platform processing over one billion historical BTCUSDT trade records. One implementation of a cross-platform engineering benchmark comparing cloud data warehouse and lakehouse architectures.</p>
-<p>The platform implements historical Binance trade ingestion using Python, Parquet staging, dbt SQL transformations, and dependency-driven orchestration using Snowflake Tasks. Medallion Architecture separates raw ingestion, normalized trades and daily summaries, and curated analytical data products. Full-refresh and incremental execution paths support historical backfills, data quality validation, and retention management. Financial analytics include daily OHLC summaries in Silver and 50-day and 200-day simple moving averages, cumulative volume delta (CVD), and volume-weighted average price (VWAP) in Gold. The implementation explores incremental processing, orchestration dependencies, data consistency, and warehouse architecture trade-offs.</p><ol class="flow" aria-label="Pipeline steps"><li>Binance Historical Trade Data</li><li>Python Acquisition &amp; Parquet Conversion</li><li>Snowflake Internal Stage</li><li>Bronze: Raw Trades</li><li>Silver: Typed Trades &amp; Daily Summaries</li><li>Gold: Financial Analytics</li></ol><div class="tags"><img class="badge" src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&amp;logo=dbt&amp;logoColor=white" alt="dbt" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Parquet-50ABF1?style=flat-square&amp;logo=apacheparquet&amp;logoColor=white" alt="Parquet" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Snowflake_Tasks-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake Tasks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Medallion_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Medallion Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Batch_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Batch Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Incremental_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Incremental Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Quality-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Quality" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Orchestration-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Orchestration" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Financial_Analytics-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Financial Analytics" loading="lazy" height="22"></div><a class="card-link" href="https://github.com/saradfrz/bitcoin-pipeline-benchmark-snowflake" target="_blank" rel="noopener">View Repository</a>        </article>
+<p>The platform implements historical Binance trade ingestion using Python, Parquet staging, dbt SQL transformations, and dependency-driven orchestration using Snowflake Tasks. Medallion Architecture separates raw ingestion, normalized trades and daily summaries, and curated analytical data products. Full-refresh and incremental execution paths support historical backfills, data quality validation, and retention management. Financial analytics include daily OHLC summaries in Silver and 50-day and 200-day simple moving averages, cumulative volume delta (CVD), and volume-weighted average price (VWAP) in Gold. The implementation explores incremental processing, orchestration dependencies, data consistency, and warehouse architecture trade-offs.</p><ol class="flow" aria-label="Pipeline steps"><li>Binance Historical Trade Data</li><li>Python Acquisition &amp; Parquet Conversion</li><li>Snowflake Internal Stage</li><li>Bronze: Raw Trades</li><li>Silver: Typed Trades &amp; Daily Summaries</li><li>Gold: Financial Analytics</li></ol><div class="tags"><img class="badge" src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&amp;logo=&amp;logoColor=white" alt="SQL" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&amp;logo=dbt&amp;logoColor=white" alt="dbt" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Parquet-50ABF1?style=flat-square&amp;logo=apacheparquet&amp;logoColor=white" alt="Parquet" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Snowflake_Tasks-29B5E8?style=flat-square&amp;logo=snowflake&amp;logoColor=white" alt="Snowflake Tasks" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Medallion_Architecture-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Medallion Architecture" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Batch_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Batch Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Incremental_Processing-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Incremental Processing" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Data_Quality-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Data Quality" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Orchestration-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Orchestration" loading="lazy" height="22"><img class="badge" src="https://img.shields.io/badge/Financial_Analytics-475569?style=flat-square&amp;logo=&amp;logoColor=white" alt="Financial Analytics" loading="lazy" height="22"></div><a class="card-link" href="https://saradfrz.github.io/bitcoin-pipeline-benchmark-snowflake/" target="_blank" rel="noopener">View Repository</a>        </article>
         <article class="card featured">
           <span class="pill star">Featured</span>
           <h3>Bitcoin Data Pipeline Benchmark — Databricks</h3>

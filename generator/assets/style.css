@@ -126,10 +126,6 @@
 
   .about { display: grid; gap: 40px; grid-template-columns: 1.6fr 1fr; align-items: start; }
   .about p { margin: 0 0 16px; max-width: 64ch; }
-  .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  .facts li { padding: 14px 18px; border: 1px solid var(--line); border-left: 2px solid var(--magenta); border-radius: 12px; background: var(--glass); }
-  .facts b { display: block; color: var(--white); font-weight: 600; }
-  .facts span { color: var(--text-dim); font-size: .92rem; }
 
   /* ---------- Cards ---------- */
   .grid { display: grid; gap: 20px; }
@@ -143,14 +139,33 @@
   .card p { margin: 0; color: var(--text-dim); }
 
   /* featured = finished */
-  .card.featured { border-radius: 26px; padding: 34px; }
-  .card.featured::before {
-    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
-    background: linear-gradient(140deg, rgba(255,43,214,.75), rgba(255,255,255,.08) 45%, rgba(255,43,214,.35));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-  }
-  .card.featured:hover { box-shadow: 0 0 60px rgba(255, 43, 214, .12); }
+.chapter-card.featured {
+    border-radius: 26px;
+    padding: 34px;
+}
+
+.chapter-card.featured::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+        140deg,
+        rgba(157, 157, 157, 0.75),
+        rgba(255,255,255,.08) 45%,
+        rgba(77, 77, 77, 0.35)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+                  linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.chapter-card.featured:hover {
+    box-shadow: 0 0 60px rgba(255,43,214,.12);
+}
   /* wip = dashed, magenta */
   .card.wip { border-radius: 20px; border: 1px dashed rgba(255, 43, 214, .55); }
   .card.wip:hover { border-color: var(--magenta); }
@@ -231,3 +246,19 @@
 /* Static template helpers */
 #project-groups > .subhead:first-child { margin-top: 0; }
 #footer { margin-top: 40px; }
+
+/* Latest articles beside About; stacks below About on mobile. */
+.latest-posts { min-width: 0; }
+.latest-posts > h3 { font-size: 1rem; margin-bottom: 14px; }
+.post-list { display: grid; gap: 14px; }
+.post-card { display: grid; gap: 10px; padding: 20px; border: 1px solid var(--line);
+  border-radius: 14px; background: var(--glass); color: var(--text); text-decoration: none;
+  overflow-wrap: anywhere; transition: border-color .2s, background .2s; }
+.post-card:hover, .post-card:focus-visible { border-color: var(--magenta);
+  background: rgba(255,255,255,.05); text-decoration: none; }
+.post-card time { font-family: var(--font-mono); font-size: .75rem; color: var(--text-dim); }
+.post-card h4 { font-family: var(--font-display); font-size: 1.08rem;
+  line-height: 1.45; margin: 0; color: var(--white); }
+.about .post-card p { font-size: .9rem; color: var(--text-dim); margin: 0; }
+.post-cta { font-size: .85rem; font-weight: 600; color: var(--white); }
+.post-cta span { color: var(--magenta); margin-left: 5px; }

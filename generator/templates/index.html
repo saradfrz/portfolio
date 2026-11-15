@@ -48,7 +48,21 @@
     <h2 id="about-title">About</h2>
     <div class="about">
       <div id="about-text">{% for paragraph in cfg.about %}<p>{{ paragraph }}</p>{% endfor %}</div>
-      <ul class="facts" id="facts">{% for fact in cfg.facts %}<li><b>{{ fact.title }}</b><span>{{ fact.text }}</span></li>{% endfor %}</ul>
+      <aside class="latest-posts" id="posts" aria-labelledby="posts-title">
+        <h3 id="posts-title">{{ posts.title }}</h3>
+        <div class="post-list">
+          {% for post in posts['items'] %}
+          <a class="post-card" href="{{ post.url }}">
+            <time datetime="{{ post.date }}">{{ post.date_label }}</time>
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.summary }}</p>
+            <span class="post-cta">Read article <span aria-hidden="true">↗</span></span>
+          </a>
+          {% else %}
+          <p class="posts-empty">New articles coming soon.</p>
+          {% endfor %}
+        </div>
+      </aside>
     </div>
   </section>
   <section id="highlights" aria-labelledby="hl-title">

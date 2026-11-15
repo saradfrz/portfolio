@@ -1,4 +1,5 @@
 import json
+from html import unescape
 import sys
 import tempfile
 import shutil
@@ -35,13 +36,13 @@ class BuildTests(unittest.TestCase):
     def test_build(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            for folder in ('data', 'templates', 'assets'):
+            for folder in ('data', 'templates', 'assets', 'posts'):
                 shutil.copytree(ROOT / folder, root / folder)
             output = build(root)
             html = output.read_text(encoding='utf-8')
             parser = PageParser()
             parser.feed(html)
-            self.assertEqual(parser.project_cards, 3)
+            self.assertEqual(parser.project_cards, 4)
             self.assertEqual(len(parser.ids), len(set(parser.ids)))
             self.assertEqual(parser.external_scripts, [])
             self.assertEqual(parser.styles, 1)
@@ -50,14 +51,16 @@ class BuildTests(unittest.TestCase):
             projects = json.loads((root / 'data/projects.json').read_text(encoding='utf-8'))
             for group in projects['groups']:
                 for project in group['items']:
-                    self.assertIn(project['title'], html)
-            self.assertIn('South America Data Lineage platform', html)
+                    self.assertIn(project['title'], unescape(html))
+            self.assertNotIn('id="facts"', html)
+            self.assertIn('href="posts/data-pipeline-engineering/index.html"', html)
+            self.assertTrue((output.parent / 'posts/data-pipeline-engineering/assets/cover.png').is_file())
             self.assertNotIn('RepoSensei', html)
 
     def test_project_count_validation(self):
         projects = json.loads((ROOT / 'data/projects.json').read_text(encoding='utf-8'))
         projects['groups'][0]['items'].clear()
-        with self.assertRaisesRegex(ValueError, 'exactly three'):
+        with self.assertRaisesRegex(ValueError, 'exactly four'):
             validate_projects(projects)
 
 
