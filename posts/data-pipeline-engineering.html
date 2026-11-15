@@ -293,6 +293,33 @@ footer a { color: var(--grey-300); text-decoration: none; transition: color .2s;
 .check > :not(h3) {
   grid-column: 2;
 }
+
+/* ----------------------- FADING ---------------------------- */
+/* Keep other images unchanged */
+img {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* Fade the image and its background together */
+.portfolio-cover {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 50%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 50%,
+    transparent 100%
+  );
+}
+
+/* Remove the existing dark overlay */
+.portfolio-cover::after {
+  content: none;
+}
+
 :root {--content:1000px;}</style>
 </head>
 <body id="top">
